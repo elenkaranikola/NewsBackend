@@ -1,0 +1,1 @@
+SELECT COUNT(*) FROM articles WHERE website="tanea.gr"
