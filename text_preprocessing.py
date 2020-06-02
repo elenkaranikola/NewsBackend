@@ -29,7 +29,3 @@ for i in text[:2]:
     final_text = normalize(i)
     print(final_text)
 
-#print (sorted(set(itertools.chain.from_iterable(all_words)),key=len)[:250])
-
-#closing file
-#f.close()

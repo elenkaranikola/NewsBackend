@@ -1,6 +1,6 @@
 #------------------------               DESCRIPTION                 ----------------------------------
 #in this python file we find and extract the most common words in the given file
-#
+#the extracted data are being saved in most_common_words.py
 import pandas as pd
 import unicodedata
 import re
