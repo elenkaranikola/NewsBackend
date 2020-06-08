@@ -7,7 +7,9 @@ import itertools
 from joblib import Parallel, delayed
 import collections
 import most_common_words 
-from collections import Counter,defaultdict,OrderedDict,namedtuple       
+from collections import Counter,defaultdict,OrderedDict,namedtuple     
+import mysql.connector  
+from settings import DB_CREDS
    
 #make all small function
 def remove_accents(input_str):
@@ -21,11 +23,23 @@ def normalize (i):
     filtered_sentence = list(filter(lambda i: i not in most_common_words.stop_words, split_to_tokens))
     return(filtered_sentence)
 
-#get data from jason file
-data = pd.read_json('/Users/elenikaranikola/Desktop/articles.json')
-text = data["article_body"]
+#connect with database
+cnx = mysql.connector.connect(
+    host = DB_CREDS['host'],
+    user = DB_CREDS['user'],
+    passwd = DB_CREDS['pass'],
+    database = DB_CREDS['db']   
+)
 
-for i in text[:2]:    
-    final_text = normalize(i)
+df = pd.read_sql('SELECT * FROM articles', con=cnx)
+
+for x in df['article_body']:
+    final_text = normalize(x)
     print(final_text)
+
+
+
+#query = ("SELECT article_body FROM articles ")
+#cursor = cnx.cursor()
+#cursor.execute(query)
 
