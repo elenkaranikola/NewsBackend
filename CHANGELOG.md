@@ -24,6 +24,8 @@ all noticable changes will be documented in this file.
 
 ### Final
   - settings.py and requirements.txt added
+  - used mysql.connector to get articles from our dataset
+
 ### Added
 
 ### Fixed
