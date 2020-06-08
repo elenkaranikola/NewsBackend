@@ -9,13 +9,25 @@ import json
 import itertools
 from joblib import Parallel, delayed
 import collections
+import mysql.connector  
 from collections import Counter,defaultdict,OrderedDict,namedtuple
+from settings import DB_CREDS
 
 fname = 'most_common_words.py'
 
-#get data from jason file
-data = pd.read_json('/Users/elenikaranikola/Desktop/NewsCleanser/articles.json')
-text = data["article_body"]
+#establish connection with database
+cnx = mysql.connector.connect(
+    host = DB_CREDS['host'],
+    user = DB_CREDS['user'],
+    passwd = DB_CREDS['pass'],
+    database = DB_CREDS['db']   
+)
+
+#get all data
+df = pd.read_sql('SELECT * FROM articles', con=cnx)
+
+#save in the text variable tha articles body
+text = df['article_body']
 
 #make all small function
 def remove_accents(input_str):
@@ -45,8 +57,9 @@ def final_normalize(input_str):
     
     return (stop_words)
 
-
+#normalize the extracted data
 file_data = final_normalize(text)
+
 #write our extracted data in most_common_words.py
 with open(fname, 'w') as f:
     f.write('stop_words = set({})'.format(file_data))

@@ -24,7 +24,7 @@ def normalize (i):
     filtered_sentence = list(filter(lambda i: i not in stop_words, split_to_tokens))
     return(filtered_sentence)
 
-#connect with database
+#establish a connection with the database
 cnx = mysql.connector.connect(
     host = DB_CREDS['host'],
     user = DB_CREDS['user'],
@@ -32,8 +32,10 @@ cnx = mysql.connector.connect(
     database = DB_CREDS['db']   
 )
 
+#get all the data from the articles table
 df = pd.read_sql('SELECT * FROM articles', con=cnx)
 
+#for each article preprocess its body
 for x in df['article_body']:
     final_text = normalize(x)
     print(final_text)
