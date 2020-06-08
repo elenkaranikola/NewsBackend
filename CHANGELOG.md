@@ -17,3 +17,13 @@ all noticable changes will be documented in this file.
 ### Added
 
 ### Fixed
+
+## 8/6/2020
+
+### UnderDev
+
+### Final
+  - settings.py and requirements.txt added
+### Added
+
+### Fixed
