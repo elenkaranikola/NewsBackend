@@ -10,6 +10,7 @@ import most_common_words
 from collections import Counter,defaultdict,OrderedDict,namedtuple     
 import mysql.connector  
 from settings import DB_CREDS
+from settings import stop_words
    
 #make all small function
 def remove_accents(input_str):
@@ -20,7 +21,7 @@ def remove_accents(input_str):
 def normalize (i):
     all_small = remove_accents(i)
     split_to_tokens = re.findall(r'[α-ω]+',all_small)
-    filtered_sentence = list(filter(lambda i: i not in most_common_words.stop_words, split_to_tokens))
+    filtered_sentence = list(filter(lambda i: i not in stop_words, split_to_tokens))
     return(filtered_sentence)
 
 #connect with database
