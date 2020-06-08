@@ -12,7 +12,7 @@ all noticable changes will be documented in this file.
 ### UnderDev
 
 ### Final
-  - python utilities for text preprocessing 
+  - python utilities for text preprocessing. 
   
 ### Added
 
@@ -23,9 +23,9 @@ all noticable changes will be documented in this file.
 ### UnderDev
 
 ### Final
-  - settings.py and requirements.txt added
+  - settings.py and requirements.txt added.
   
 ### Added
 
 ### Fixed
-- used mysql.connector to get articles from our database in the most_common.py and text_preprocessing.py files
+- used mysql.connector to get articles from our database in the most_common.py and text_preprocessing.py files.
