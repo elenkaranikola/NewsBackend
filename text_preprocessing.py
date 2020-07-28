@@ -6,7 +6,6 @@ import json
 import itertools
 from joblib import Parallel, delayed
 import collections
-import most_common_words 
 from collections import Counter,defaultdict,OrderedDict,namedtuple     
 import mysql.connector  
 from settings import DB_CREDS
@@ -38,7 +37,9 @@ df = pd.read_sql('SELECT * FROM articles', con=cnx)
 #for each article preprocess its body
 for x in df['article_body']:
     final_text = normalize(x)
-    print(final_text)
+    res = [" ".join(final_text)]
+    print(res)
+    break
 
 
 

@@ -1,6 +1,8 @@
 #------------------------               DESCRIPTION                 ----------------------------------
 #in this python file we find and extract the most common words in the given file
-#the extracted data are being saved in most_common_words.py
+#the extracted data are being saved in settings.py
+#-----------------------------------------------------------------------------------------------------
+
 import pandas as pd
 import unicodedata
 import re
@@ -13,7 +15,7 @@ import mysql.connector
 from collections import Counter,defaultdict,OrderedDict,namedtuple
 from settings import DB_CREDS
 
-fname = 'most_common_words.py'
+fname = 'settings.py'
 
 #establish connection with database
 cnx = mysql.connector.connect(
@@ -47,6 +49,11 @@ def final_normalize(input_str):
     #put them in one list
     all_articles_combined = list(itertools.chain.from_iterable(all_words))
 
+    #find the shortest in length
+    #short_words = [set(sorted(all_articles_combined,reverse=True,key=len))]
+    short_words = sorted(list(set(all_articles_combined)),key=len)
+    short = short_words[:200]
+
     #find the 118 most commonly used words
     most_common_words = Counter(all_articles_combined).most_common(118)
 
@@ -55,11 +62,16 @@ def final_normalize(input_str):
     for i in most_common_words:
         stop_words.append(i[0])
     
-    return (stop_words)
+    return (stop_words,short)
 
 #normalize the extracted data
 file_data = final_normalize(text)
+data1 = file_data[0]
+data2 = file_data[1]
 
 #write our extracted data in most_common_words.py
-with open(fname, 'w') as f:
-    f.write('stop_words = set({})'.format(file_data))
+with open(fname, 'a+') as f:
+    f.write('\n')
+    f.write('stop_words = set({})'.format(data1))
+    f.write('\n')
+    f.write('short_words = set({})'.format(data2))
