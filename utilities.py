@@ -45,6 +45,28 @@ def finalNormalize (i):
     filtered_sentence = list(filter(lambda i: i not in (stop_words or short_words), text))
     return(filtered_sentence)
 
+def finalNormalize(input_str):
+    #combine all the words from every article and to it parallel
+    all_words = Parallel(n_jobs=-1, backend="loky")(map(delayed(normalize), input_str))
+
+    #put them in one list
+    all_articles_combined = list(itertools.chain.from_iterable(all_words))
+
+    #find the shortest in length
+    #short_words = [set(sorted(all_articles_combined,reverse=True,key=len))]
+    short_words = sorted(list(set(all_articles_combined)),key=len)
+    short = short_words[0:500]
+
+    #find the 118 most commonly used words
+    most_common_words = Counter(all_articles_combined).most_common(118)
+
+    #keep the most common words    
+    stop_words = []
+    for i in most_common_words:
+        stop_words.append(i[0])
+    
+    return (stop_words,short)
+
 #read function
 def readText(i):
     df = pd.read_sql(i, con=cnx)
