@@ -14,7 +14,7 @@ import collections
 import mysql.connector  
 from collections import Counter,defaultdict,OrderedDict,namedtuple
 from settings import DB_CREDS
-from utilities import finalNormalize, cnx
+from utilities import uselessWords, cnx
 
 fname = 'dependencies/filter_words.txt'
 
@@ -25,7 +25,7 @@ df = pd.read_sql('SELECT * FROM articles', con=cnx)
 text = df['article_body']
 
 #normalize the extracted data
-file_data = finalNormalize(text)
+file_data = uselessWords(text)
 data1 = file_data[0]
 data2 = file_data[1]
 

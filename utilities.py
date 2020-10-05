@@ -45,7 +45,7 @@ def finalNormalize (i):
     filtered_sentence = list(filter(lambda i: i not in (stop_words or short_words), text))
     return(filtered_sentence)
 
-def finalNormalize(input_str):
+def uselessWords(input_str):
     #combine all the words from every article and to it parallel
     all_words = Parallel(n_jobs=-1, backend="loky")(map(delayed(normalize), input_str))
 
