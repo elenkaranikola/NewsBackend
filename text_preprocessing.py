@@ -9,7 +9,7 @@ import collections
 from collections import Counter,defaultdict,OrderedDict,namedtuple     
 import mysql.connector  
 from settings import DB_CREDS
-from utilities import finalNormalize, cnx, readText, writeData
+from utilities import finalNormalize, readText, writeData
 
 #get all the data from the articles table
 sql_command = "SELECT * FROM articles"
