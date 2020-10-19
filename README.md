@@ -1,4 +1,4 @@
-# Newscleanser
+# NewsCleanser
 
 ## Project Stucture:
   - utilities.py: Contains all the functions that are being used in this project.
