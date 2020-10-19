@@ -12,7 +12,6 @@ from joblib import Parallel, delayed
 import collections
 import mysql.connector  
 from collections import Counter,defaultdict,OrderedDict,namedtuple
-#from settings import stop_words, short_words
 from settings import DB_CREDS
 
 
@@ -53,7 +52,6 @@ def uselessWords(input_str):
     all_articles_combined = list(itertools.chain.from_iterable(all_words))
 
     #find the shortest in length
-    #short_words = [set(sorted(all_articles_combined,reverse=True,key=len))]
     short_words = sorted(list(set(all_articles_combined)),key=len)
     short = short_words[0:500]
 
