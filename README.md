@@ -7,3 +7,28 @@
   - text_preprocessing.py: Used to keep only the usefull words from a text.
   - commands.sql: Sql commands to control tha data on the database.
   - create_table_articles.sql: Sql commands used to create our database.
+  
+### Steps to run this project:
+
+1. Open your terminal and run:
+
+```bash
+$ git clone https://github.com/elenisproject/NewsCleanser.git
+$ cd NewsCleanser
+$ pip3 install -r requirements.txt
+
+```
+*Now we have in our computer, the code we need to start this project. Time to create our database. I used MySQLWorkbench.* 
+
+2. Create a new schema and run the sql command:
+[create_table_article.sql](Database_Configuration/create_table_articles.sql)
+
+3. Run the project as explained in
+[NewCrawler](https://github.com/elenisproject/NewsCrawler.git)
+to fill your database with data.
+
+4. Go back to your terminal and run:
+```bash
+$ python3 stop_words.py     
+$ python3 text_preprocessing.py
+```
