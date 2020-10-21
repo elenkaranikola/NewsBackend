@@ -37,3 +37,12 @@ all noticable changes will be documented in this file.
 
 ### Fixed
 - README.md added instructions to run project
+
+## 21/10/2020
+
+### UnderDev
+- jupyter notebook, added visualization for most common words per year
+
+### Added
+- added notebooks in new directory ./notebook
+- created in each notebook seperate functions for each job
