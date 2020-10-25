@@ -41,8 +41,13 @@ def finalNormalize (i):
     stop_words=f.readline()
     short_words=f.readline()
     f.close()
-    filtered_sentence = list(filter(lambda i: i not in (stop_words or short_words), text))
-    return(filtered_sentence)
+    f = open("dependencies/imported_stop_words.txt", "r")
+    fix_words=f.readline()
+    f.close()
+    filtered_sentence = list(filter(lambda i: i not in stop_words, text))
+    second_filter = list(filter(lambda i: i not in short_words, filtered_sentence))
+    third_filter = list(filter(lambda i: i not in fix_words, second_filter))
+    return(third_filter)
 
 def uselessWords(input_str):
     #combine all the words from every article and to it parallel
@@ -56,7 +61,7 @@ def uselessWords(input_str):
     short = short_words[0:500]
 
     #find the 118 most commonly used words
-    most_common_words = Counter(all_articles_combined).most_common(118)
+    most_common_words = Counter(all_articles_combined).most_common(300)
 
     #keep the most common words    
     stop_words = []

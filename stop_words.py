@@ -35,3 +35,4 @@ with open(fname, 'a+') as f:
     f.write(', '.join(map(str, data1)))
     f.write('\n')
     f.write(', '.join(map(str, data2)))
+

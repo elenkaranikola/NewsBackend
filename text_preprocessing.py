@@ -20,18 +20,24 @@ id = df['id']
 topic = df['topic']
 subtopic = df['subtopic']
 website = df['website']
-title = df['title']
 article_date = df['article_date']
 author = df['author']
 url = df['url']
 
 article_body = []
+title = []
 
 #for each article preprocess its body
 for x in df['article_body']:
     final_text = finalNormalize(x)
     res = " ".join(final_text)
     article_body.append(res)
+
+#for each article preprocess its title
+for x in df['title']:
+    final_title = finalNormalize(x)
+    res = " ".join(final_title)
+    title.append(res)
 
 #save all data to a dictionary
 dict = {'id':id, 'topic':topic, 'subtopic':subtopic, 'website': website, 'article_date':article_date, 'author':author, 'title':title, 'article_body':article_body, 'url':url}
