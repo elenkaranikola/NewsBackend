@@ -46,3 +46,11 @@ all noticable changes will be documented in this file.
 ### Added
 - added notebooks in new directory ./notebook
 - created in each notebook seperate functions for each job
+
+## 25/10/2020
+
+### UnderDev
+- jupyter notebook, added visualization for most popular newsources
+
+### Added
+- added more stop words, some of them where found on internet while others where added based on my observations.
