@@ -54,3 +54,11 @@ all noticable changes will be documented in this file.
 
 ### Added
 - added more stop words, some of them where found on internet while others where added based on my observations.
+
+## 26/10/2020
+
+### UnderDev
+- jupyter notebook, added visualization for most popular authors, and most popular countries
+
+### Added
+- added more verbs in imported stop words.
