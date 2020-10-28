@@ -62,3 +62,13 @@ all noticable changes will be documented in this file.
 
 ### Added
 - added more verbs in imported stop words.
+
+## 27/10/2020
+
+### UnderDev
+- jupyter notebook, added visualization for article_size_per_category
+
+## 28/10/2020
+
+### UnderDev
+- jupyter notebook, added visualization for goodnews_badnews and word_popularity_in_time
