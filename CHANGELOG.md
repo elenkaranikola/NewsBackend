@@ -72,3 +72,8 @@ all noticable changes will be documented in this file.
 
 ### UnderDev
 - jupyter notebook, added visualization for goodnews_badnews and word_popularity_in_time
+
+## 29/10/2020
+
+### UnderDev
+- jupyter notebook, added visualization for percentage_top_authors
