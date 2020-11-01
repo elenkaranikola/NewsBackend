@@ -77,3 +77,9 @@ all noticable changes will be documented in this file.
 
 ### UnderDev
 - jupyter notebook, added visualization for percentage_top_authors
+
+## 1/11/2020
+
+### UnderDev
+- jupyter notebook, added visualization for quality_of_articles
+
