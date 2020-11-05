@@ -19,7 +19,10 @@ delete_source = ['. Ο Λ','. Ο Γ',' Η Γ','8Κ - HDMI 2.1',' LED ',' ΠΗΓ�
 #list of different names for "ΑΠΕ-ΜΠΕ"
 ape_mpe_names = [' ΑΠΕ ΜΠΕ',' ΑΠΕ ΜΠΕ Γ',' ΑΠΕ-ΜΠΕ Δ',' ΑΠΕ-ΜΠΕ',' ΑΠΕ ',' ΑΠΕ-ΜΠΕ ',' ΑΠΕ']
 
-#
+#list of colors used to plot barchars in notebook folder 
 years_colors = ['brown','saddlebrown','darkorange', 'darkolivegreen','green','mediumturquoise','deepskyblue','royalblue', 'blueviolet','orchid']
+
+#list of colors used to plot barchars in notebook folder 
+category_colors = ['darkred','green','mediumblue', 'orange','cyan','palevioletred','darkgoldenrod','pink', 'darkmagenta','steelblue']
 
 
