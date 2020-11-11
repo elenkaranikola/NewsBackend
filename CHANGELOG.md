@@ -83,3 +83,13 @@ all noticable changes will be documented in this file.
 ### UnderDev
 - jupyter notebook, added visualization for quality_of_articles
 
+## 2/11/2020 - 10/11/2020
+
+### Fixed
+- closing multiple issues in notebooks for code improvement
+
+# 11/11/2020
+
+### UnderDev
+- created first API, gets input the id of an article returns the articles text 
+- script_for_API.py: the idea was to create a new table with foreign key the articles id and in a second column the three ids of the closest in words articles.
