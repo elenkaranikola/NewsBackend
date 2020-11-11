@@ -24,7 +24,5 @@ years_colors = ['brown','saddlebrown','darkorange', 'darkolivegreen','green','me
 
 #list of colors used to plot barchars in notebook folder 
 category_colors = ['darkred','green','mediumblue', 'orange','cyan','palevioletred','darkgoldenrod','pink', 'darkmagenta','steelblue']
-
 pie_colors = [['darkorange','maroon'],['darkviolet','dodgerblue'],['darkorange','forestgreen'],['chocolate','darkolivegreen'],['lightskyblue','pink'],['turquoise','rebeccapurple'],['navy','lavender'],['rebeccapurple','palegoldenrod'],['mediumvioletred','dodgerblue'],['aqua','crimson']]
-
 wordpopularity_colors = ['red','blue','orange','green','purple','brown','pink','gray','olive','cyan']
