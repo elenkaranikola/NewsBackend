@@ -6,32 +6,47 @@ import collections
 from collections import Counter,defaultdict,OrderedDict,namedtuple 
 from wordcloud import WordCloud, STOPWORDS, ImageColorGenerator
 from statistics import stdev
+import mysql.connector  
+from settings import DB_CREDS
+from utilities import finalNormalize, readText, writeData, writeCell
 
-#this will be the input
-index = 36588
+#get all the data from the articles table
+sql_command = "SELECT id FROM articles"
+indexes = readText(sql_command)
 
-#we will connect with the database and get data
-df = pd.read_csv('output.csv', index_col='id')
+#print(indexes.values)
+for i in indexes.to_numpy():
+    index = (i[0]).item()
+    #this will be the input
+    #index = 36588
 
-#fill all null values in the table
-df = df.fillna(" ")
+    #we will connect with the database and get data
+    df = pd.read_csv('output.csv', index_col='id')
 
-#create empty dictionary
-my_dict = {k:0 for k in df.index}
+    #fill all null values in the table
+    df = df.fillna(" ")
 
-#this will be the set o words from our input
-setA = set((df.at[index,'article_body']).split())
+    #create empty dictionary
+    my_dict = {k:0 for k in df.index}
 
-#get intersection for this for all the articles from our data
-for x in df.index:
-    setB = set((df.at[x,'article_body']).split())
-    my_dict.update({x:len(setA.intersection(setB))})
+    #this will be the set o words from our input
+    setA = set((df.at[index,'article_body']).split())
+
+    #get intersection for this for all the articles from our data
+    for x in df.index:
+        setB = set((df.at[x,'article_body']).split())
+        my_dict.update({x:len(setA.intersection(setB))})
 
 
-sort_dict = sorted(my_dict.items(), key=lambda x: x[1], reverse=True)
-#we get results for the second to the forth, obviously the first is going to be the id of the article its self 
-# we will want to return this as response
-print(sort_dict[1:4])
+    sort_dict = sorted(my_dict.items(), key=lambda x: x[1], reverse=True)
 
-#    article_words = set(x.split())
+    key1 =  (sort_dict[1])[0] 
+    key2 =  (sort_dict[2])[0]
+    key3 =  (sort_dict[3])[0]
+    key4 =  (sort_dict[4])[0]
+    key5 =  (sort_dict[5])[0]
+
+    #write result to database
+    writeCell(index,key1,key2,key3,key4,key5)
+
     
