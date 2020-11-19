@@ -129,3 +129,4 @@ def CombineArticles(category,df):
         category_words_combined.extend(word_list) 
     
     return(category_words_combined)
+
