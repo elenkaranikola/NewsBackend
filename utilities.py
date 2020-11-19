@@ -8,6 +8,7 @@ import re
 import string
 import json
 import itertools
+import statistics 
 from joblib import Parallel, delayed
 import collections
 import mysql.connector  
@@ -70,6 +71,25 @@ def uselessWords(input_str):
     
     return (stop_words,short)
 
+def SortMyDict(df,index):
+
+    #fill all null values in the table
+    df = df.fillna(" ")
+
+    #create empty dictionary
+    my_dict = {k:0 for k in df.index}
+
+    #this will be the set o words from our input
+    setA = set((df.at[index,'article_body']).split())
+
+    #get intersection for this for all the articles from our data
+    for x in df.index:
+        setB = set((df.at[x,'article_body']).split())
+        my_dict.update({x:len(setA.intersection(setB))})
+
+    sort_dict = sorted(my_dict.items(), key=lambda x: x[1], reverse=True)
+    return (sort_dict)
+
 #read function
 def readText(i):
     df = pd.read_sql(i, con=cnx)
@@ -81,3 +101,31 @@ def writeData (out_file,text):
     with open(fname, 'a+') as f:
         f.write('\n')
         f.write(text)
+
+
+#function that gets as input text and returns a dict with the 100 most popular ones
+def FindTop(articles):
+    #initiate an empty list to save all the words of all the articles
+    all_words_compined = []
+    
+    for words in articles:
+        #split the articles to words
+        word_list = words.split()
+        #save the words to our list
+        all_words_compined.extend(word_list)
+        
+    #find the 500 most common
+    top = Counter(all_words_compined).most_common(100)
+    return top
+
+def CombineArticles(category,df):
+    culture_articles = df.groupby(['topic']).get_group(category)['article_body']
+    #set an empty variable to save all the words 
+    category_words_combined = []
+
+    #combine all words from each article
+    for words in culture_articles:
+        word_list = words.split()
+        category_words_combined.extend(word_list) 
+    
+    return(category_words_combined)

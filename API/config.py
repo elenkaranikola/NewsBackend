@@ -7,10 +7,3 @@ class Config(object):
                                          + os.environ['DB_PASSWORD']+ "@" 
                                          + os.environ['DB_HOST'] 
                                          + ":3306/NewsCrawler")
-
-    #Enter here your database informations 
-    MYSQL_HOST = os.environ.get('localhost')
-    MYSQL_USER = os.environ.get('root')
-    MYSQL_PASSWORD = os.environ.get('eleni123')
-    MYSQL_DB = os.environ.get('NewsCrawler')
-    MYSQL_CURSORCLASS = os.environ.get('DictCursor')
