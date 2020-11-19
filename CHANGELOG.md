@@ -91,5 +91,10 @@ all noticable changes will be documented in this file.
 # 11/11/2020
 
 ### UnderDev
-- created first API, gets input the id of an article returns the articles text 
+- created first API, gets input the id of an article returns the id of the closest article 
 - script_for_API.py: the idea was to create a new table with foreign key the articles id and in a second column the three ids of the closest in words articles.
+
+# 19/11/2020
+
+### UnderDev
+- created first classifier
