@@ -15,8 +15,8 @@
 1. Open your terminal and run:
 
 ```bash
-$ git clone https://github.com/elenisproject/NewsCleanser.git
-$ cd NewsCleanser
+$ git clone https://github.com/elenisproject/NewsBackend.git
+$ cd NewsBackend
 $ pip3 install -r requirements.txt
 
 ```
@@ -26,7 +26,7 @@ $ pip3 install -r requirements.txt
 [create_table_article.sql](Database_Configuration/create_table_articles.sql)
 
 3. Run the project as explained in
-[NewCrawler](https://github.com/elenisproject/NewsCrawler.git)
+[NewBackend](https://github.com/elenisproject/NewsBackend.git)
 to fill your database with data.
 
 4. Go back to your terminal and run:
