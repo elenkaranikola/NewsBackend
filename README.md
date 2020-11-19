@@ -26,7 +26,7 @@ $ pip3 install -r requirements.txt
 [create_table_article.sql](Database_Configuration/create_table_articles.sql)
 
 3. Run the project as explained in
-[NewBackend](https://github.com/elenisproject/NewsBackend.git)
+[NewsBackend](https://github.com/elenisproject/NewsBackend.git)
 to fill your database with data.
 
 4. Go back to your terminal and run:
