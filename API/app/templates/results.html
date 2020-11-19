@@ -2,6 +2,11 @@
 
 {% block content %}
 <div>
-    <p>{{ article.id}} has closest: <b>{{ article.first_article }}</b></p>
+    <ul>
+        <h3>Closest Ids articles for the article :{{ article.id}}</h3>
+        <li>{{ article.first_article }}</li>
+        <li>{{ article.second_article }}</li>
+        <li>{{ article.third_article }}</li>
+    </ul>
 </div>
 {% endblock %}
