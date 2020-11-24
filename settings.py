@@ -26,3 +26,7 @@ years_colors = ['brown','saddlebrown','darkorange', 'darkolivegreen','green','me
 category_colors = ['darkred','green','mediumblue', 'orange','cyan','palevioletred','darkgoldenrod','pink', 'darkmagenta','steelblue']
 pie_colors = [['darkorange','maroon'],['darkviolet','dodgerblue'],['darkorange','forestgreen'],['chocolate','darkolivegreen'],['lightskyblue','pink'],['turquoise','rebeccapurple'],['navy','lavender'],['rebeccapurple','palegoldenrod'],['mediumvioletred','dodgerblue'],['aqua','crimson']]
 wordpopularity_colors = ['red','blue','orange','green','purple','brown','pink','gray','olive','cyan']
+
+cleaned_output = '/Users/elenikaranikola/Desktop/NewsBackend/output.csv'
+
+categories = ['World','Sport','Culture','Society','Economics','Environment','Politics','Tech','Food','Style']

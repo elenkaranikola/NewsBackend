@@ -3,7 +3,7 @@ import pandas as pd
 import statistics 
 import sys
 sys.path.insert(1, '/Users/elenikaranikola/Desktop/NewsCleanser')
-from utilities import writeCell,SortMyDict
+from utilities import WriteCell,SortMyDict
 
 #get all the data from the articles table
 sql_command = "SELECT id FROM articles"
@@ -18,11 +18,9 @@ for i in indexes.to_numpy():
     #call a function to pass our articles an our index and get back for each index in our database the 5 closest articles 
     sort_dict = SortMyDict(df,index)
 
-    key1 =  (sort_dict[1])[0] 
-    key2 =  (sort_dict[2])[0]
-    key3 =  (sort_dict[3])[0]
-    key4 =  (sort_dict[4])[0]
-    key5 =  (sort_dict[5])[0]
+    keys = [0]*5
+    for i in range(0,5):
+        keys[i] = (sort_dict[i+1])[0] 
 
     #write result to database
-    writeCell(index,key1,key2,key3,key4,key5)
+    WriteCell(index,keys)

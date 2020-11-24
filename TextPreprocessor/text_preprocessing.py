@@ -1,13 +1,9 @@
 import pandas as pd
 import unicodedata
-import re
 import string
 import json
-import itertools
-from joblib import Parallel, delayed
-import collections
-from collections import Counter,defaultdict,OrderedDict,namedtuple     
-import mysql.connector  
+import sys
+sys.path.insert(1, '/Users/elenikaranikola/Desktop/NewsBackend')
 from settings import DB_CREDS
 from utilities import finalNormalize, readText, writeData
 

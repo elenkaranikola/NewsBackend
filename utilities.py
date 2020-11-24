@@ -96,11 +96,24 @@ def readText(i):
     return (df)
 
 #write funtion
-def writeData (out_file,text):
+def WriteData (out_file,text):
     fname = out_file
     with open(fname, 'a+') as f:
         f.write('\n')
         f.write(text)
+
+
+#write to cell function
+def WriteCell(my_id,keys):
+    connection = cnx 
+    mySql_insert_query = """INSERT INTO similar_articles (id,first_article,second_article,third_article,fourth_article,fifth_article) 
+                           VALUES 
+                           (%s,%s,%s,%s,%s,%s)
+                            """
+    cursor = connection.cursor()
+    cursor.execute(mySql_insert_query,(my_id,keys[0],keys[1],keys[2],keys[3],keys[4]))
+    connection.commit()
+    cursor.close()
 
 
 #function that gets as input text and returns a dict with the 100 most popular ones
@@ -130,3 +143,47 @@ def CombineArticles(category,df):
     
     return(category_words_combined)
 
+#main tester
+def MainTester(all_categories):
+    df2 = pd.read_csv('/Users/elenikaranikola/Desktop/NewsBackend/output.csv', index_col='id')
+    df2 = df2.fillna(" ")
+
+    max = 0
+    sum = 0
+    correct_category = 0
+    wrong_category = 0
+    for x in df2.index:
+        article = df2.at[x,'article_body'] 
+        input_to_tokens = set(article.split())
+
+        for category in all_categories:
+
+            for i in input_to_tokens:
+                if i in all_categories[category]:
+                    sum += all_categories[category][i]
+            if max < sum :
+                max = sum
+                final_category = category
+        if final_category == df2.at[x,'topic']:
+            correct_category += 1
+        else:
+            wrong_category += 1
+
+
+    final_res = correct_category/wrong_category * 100
+    return (final_res)
+
+def finalNormalizeFullPath(i):
+    text = normalize(i)
+    f = open("/Users/elenikaranikola/Desktop/NewsBackend/dependencies/filter_words.txt", "r")
+    f.readline()
+    stop_words=f.readline()
+    short_words=f.readline()
+    f.close()
+    f = open("/Users/elenikaranikola/Desktop/NewsBackend/dependencies/imported_stop_words.txt", "r")
+    fix_words=f.readline()
+    f.close()
+    filtered_sentence = list(filter(lambda i: i not in stop_words, text))
+    second_filter = list(filter(lambda i: i not in short_words, filtered_sentence))
+    third_filter = list(filter(lambda i: i not in fix_words, second_filter))
+    return(third_filter)

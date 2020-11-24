@@ -7,3 +7,4 @@ class Config(object):
                                          + os.environ['DB_PASSWORD']+ "@" 
                                          + os.environ['DB_HOST'] 
                                          + ":3306/NewsCrawler")
+    JSON_AS_ASCII = False

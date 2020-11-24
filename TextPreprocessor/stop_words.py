@@ -8,11 +8,8 @@ import unicodedata
 import re
 import string
 import json
-import itertools
-from joblib import Parallel, delayed
-import collections
-import mysql.connector  
-from collections import Counter,defaultdict,OrderedDict,namedtuple
+import sys
+sys.path.insert(1, '/Users/elenikaranikola/Desktop/NewsBackend')
 from settings import DB_CREDS
 from utilities import uselessWords, cnx
 

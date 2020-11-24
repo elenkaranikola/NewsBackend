@@ -1,7 +1,8 @@
 from app import db
 
-class Article(db.Model):
+class Articles(db.Model):
     id = db.Column(db.Integer, primary_key=True)
+    topic = db.Column(db.String(50), index=True)
     subtopic = db.Column(db.String(50), index=True)
     website = db.Column(db.String(20), index=True)
     title = db.Column(db.Text, index=True)

@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="container">
+    <h1 style="text-align: center;">All Articles</h1>
+    <div class="row">
+      <div class="col">
+        <div class="card bg-secondary">
+          <div id="properties" class="card-body bg-dark">
+            {% for article in articles %}
+              <div class="card  mb-3">
+                <div class="card-header">
+                  <strong>{{article.subtopic}}</strong>
+                </div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-ms-1">
+                            <p><strong>Title: </strong>{{article.title}}</p>
+                            <p>{{article.article_body}}</p>
+                            <p><strong>Author: </strong>{{article.author}}</p>
+                        </div>
+                    </div>
+                </div>
+              </div>
+
+            {% endfor %}
+          </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
