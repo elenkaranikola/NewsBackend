@@ -1,5 +1,54 @@
-h1{
+h1 {
     color: #00bfff;
     margin-top: 50px;
     margin-bottom: 50px;
+}
+
+img {
+    margin-top: 10px;
+    border-radius: 50%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 150%;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+  }
+.col {
+   float: left;
+}
+ 
+.left {
+  width: 10%;
+}
+ 
+.right {
+  margin-left: 0px;
+  margin-top: 50px;
+   width: 90%;
+}
+.next_button{
+    margin-left: 85%;
+}
+
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+header {
+   background-color: #666;
+   padding: 30px;
+   text-align: center;
+   font-size: 35px;
+   color: white;
+ }
+
+.article-body {
+    margin-top: 40px;
 }

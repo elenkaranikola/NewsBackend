@@ -9,27 +9,51 @@ from functools import wraps
 import os
 
 @app.route('/',methods=["POST","GET"])
+
 @app.route('/home')
 def home():
-    articles = Articles.query.limit(10).all()
+    page = request.args.get('page', 1, type=int)
+    articles = Articles.query.paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+
+    next_url = url_for('home', page=articles.next_num) \
+        if articles.has_next else None
+    prev_url = url_for('home', page=articles.prev_num) \
+        if articles.has_prev else None
+
+    return render_template('home.html', title='All Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
+
+
+@app.route('/world')
+def world():
+    page = request.args.get('page', 1, type=int)
+    articles = Articles.query.filter_by(topic='World').paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+
+    next_url = url_for('world', page=articles.next_num) \
+        if articles.has_next else None
+    prev_url = url_for('world', page=articles.prev_num) \
+        if articles.has_prev else None
+
+    return render_template('world.html', title='All Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
+
     #article_dicts = {}
     #index = 0
-    articles_list = []
-    for article in articles:
-        articles_list.append(article)
-        #article_dicts[article.id] = [article.topic,article.article_body]
-        #index += 1
-    #return  jsonify(article_dicts)
-    if request.args:
-        index = int(request.args.get('index'))
-        limit = int(request.args.get('limit'))
-    
+    #articles_list = []
+    #for article in articles:
+    #    articles_list.append(article)
 
-        return render_template('home.html', title='All Articles',articles = articles_list[index:limit + index])
-    else:
-        return render_template('home.html', title='All Articles',articles = articles_list[:10])
-
+    #return render_template('ArticleSizePerCategory.html')
     #return render_template('home.html', title='All Articles',articles = articles_list)
+
+@app.route("/article/<id>")
+def article(id):
+    article = Articles.query.filter_by(id=id).first_or_404()
+    similar_articles =  SimilarArticles.query.filter_by(id=id).first()
+    first_article = Articles.query.filter_by(id=similar_articles.first_article).first_or_404()
+    second_article = Articles.query.filter_by(id=similar_articles.second_article).first_or_404()
+    third_article = Articles.query.filter_by(id=similar_articles.third_article).first_or_404()
+    return render_template('article.html', article=article, first_article=first_article, second_article=second_article, third_article=third_article)
 
 
 @app.route("/search",methods=["POST","GET"])

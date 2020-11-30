@@ -3,7 +3,7 @@
 {% block content %}
 
 <div class="container">
-    <h1 style="text-align: center;">All Articles</h1>
+    <h1 style="text-align: center;">World Articles</h1>
     <div class="row">
       <div class="col">
         <div class="card bg-secondary">
@@ -12,9 +12,7 @@
               <div class="card  mb-3">
                 <div class="card-header">
                   <div class="col left">
-                    {% if article.subtopic == 'World' %}
                     <p><img src="{{url_for('static', filename='worldnews.png')}}"/></p>
-                    {% endif %}
                   </div>
                   <div class="col right">
                     <p><h3><i>{{article.subtopic}} News</i></h3></p>

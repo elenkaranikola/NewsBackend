@@ -27,7 +27,24 @@
                   <a class="nav-link" href="{{ url_for('home') }}">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Categories</a>
+                  <div class="dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      Categories
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a class="dropdown-item" href="{{url_for('world')}}">World</a>
+                      <a class="dropdown-item" href="#">Politics</a>
+                      <a class="dropdown-item" href="#">Society</a>
+                      <a class="dropdown-item" href="#">Economics</a>
+                      <a class="dropdown-item" href="#">Technology</a>
+                      <a class="dropdown-item" href="#">Culture</a>
+                      <a class="dropdown-item" href="#">Sport</a>
+                      <a class="dropdown-item" href="#">Environment</a>
+                      <a class="dropdown-item" href="#">Food</a>
+                      <a class="dropdown-item" href="#">Culture</a>
+                    </div>
+                  </div>
+                  <!-- a class="nav-link" href="#">Categories</a -->
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Analytics</a>

@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<header>
+    <p>{{article.subtopic}}</p>
+    <p>{{article.article_date}}</p>
+    <h1>{{article.title}}</h1>
+</header>
+<article>
+    <div class = "container">
+        <div class = "article-body">
+        <p>{{article.article_body}}</p>
+        <p>{{article.author}}</p>
+        <a href="{{article.url}}">Open In Website</a><hr>
+        </div>
+        <div class="column-with-similar-articles">
+           
+            <h4>Read Also</h5><hr>
+            <div class = "container-md">
+                <div class="row">
+                    <div class="col">
+                        <p><strong>Category: {{first_article.subtopic}}</strong></p>
+                        <p>{{first_article.title}}</p>
+                        <p><strong>Author: </strong>{{first_article.author}}</p>
+                        <p><a href="{{url_for('article', id=first_article.id)}}">READ MORE</a></p>
+                    </div>
+                    <div class="col">
+                        <p><strong>Category: {{second_article.subtopic}}</strong></p>
+                        <p>{{second_article.title}}</p>
+                        <p><strong>Author: </strong>{{second_article.author}}</p>
+                        <p><a href="{{url_for('article', id=second_article.id)}}">READ MORE</a></p>
+                    </div>
+                    <div class="col">
+                        <p><strong>Category: {{third_article.subtopic}}</strong></p>
+                        <p>{{third_article.title}}</p>
+                        <p><strong>Author: </strong>{{third_article.author}}</p>
+                        <p><a href="{{url_for('article', id=third_article.id)}}">READ MORE</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</article>
+<footer>
+    <p>Footer</p>
+</footer>
+{% endblock %}
