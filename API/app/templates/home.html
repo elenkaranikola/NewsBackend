@@ -1,46 +1,32 @@
 {% extends "base.html" %}
 
+{% block container %}All Articles{% endblock %}
+
 {% block content %}
-
-<div class="container">
-    <h1 style="text-align: center;">All Articles</h1>
+{% for article in articles %}
+<div class="card border-dark mb-3">
+<div class="card-header">
+  <div class="col left">
+    
+    {% if article.subtopic == 'World' %}
+    <p><img src="{{url_for('static', filename='img/worldnews.png')}}"/></p>
+    {% endif %}
+  </div>
+  <div class="col right">
+    <p><h3><i>{{article.subtopic}} News</i></h3></p>
+  </div>
+</div>
+<div class="card-body">
     <div class="row">
-      <div class="col">
-        <div class="card bg-secondary">
-          <div id="properties" class="card-body bg-dark">
-            {% for article in articles %}
-              <div class="card  mb-3">
-                <div class="card-header">
-                  <div class="col left">
-                    {% if article.subtopic == 'World' %}
-                    <p><img src="{{url_for('static', filename='worldnews.png')}}"/></p>
-                    {% endif %}
-                  </div>
-                  <div class="col right">
-                    <p><h3><i>{{article.subtopic}} News</i></h3></p>
-                  </div>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-ms-1">
-                            <p><strong>{{article.title}}</strong></p>
-                            <p>{{article.article_body[0:100]}}...<a href="{{url_for('article', id=article.id)}}">READ MORE</a></p>
-                            <p><strong>Author: </strong>{{article.author}}</p>
-                            <p><i>{{article.article_date}}</i></p>
-                        </div>
-                    </div>
-                </div>
-              </div>
-
-            {% endfor %}
-            {% if prev_url %}
-            <a href="{{ prev_url }}">Previous</a>
-            {% endif %}
-            {% if next_url %}
-            <a class="next_button" href="{{ next_url }}">Next</a>
-            {% endif %}
-          </div>
+        <div class="col-ms-1">
+            <p><strong>{{article.title}}</strong></p>
+            <p>{{article.article_body[0:100]}}...</p>     
+            <p><a class="btn btn-primary btn-sm" href="{{url_for('article', id=article.id)}}" role="button">READ MORE</a></p>
+            <p><strong>Author: </strong>{{article.author}}</p>
+            <p><i>{{article.article_date}}</i></p>
         </div>
     </div>
 </div>
+</div>
+{% endfor %}
 {% endblock %}

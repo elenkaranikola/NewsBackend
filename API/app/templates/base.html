@@ -33,15 +33,15 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                       <a class="dropdown-item" href="{{url_for('world')}}">World</a>
-                      <a class="dropdown-item" href="#">Politics</a>
-                      <a class="dropdown-item" href="#">Society</a>
-                      <a class="dropdown-item" href="#">Economics</a>
-                      <a class="dropdown-item" href="#">Technology</a>
-                      <a class="dropdown-item" href="#">Culture</a>
-                      <a class="dropdown-item" href="#">Sport</a>
-                      <a class="dropdown-item" href="#">Environment</a>
-                      <a class="dropdown-item" href="#">Food</a>
-                      <a class="dropdown-item" href="#">Culture</a>
+                      <a class="dropdown-item" href="{{url_for('politics')}}">Politics</a>
+                      <a class="dropdown-item" href="{{url_for('society')}}">Society</a>
+                      <a class="dropdown-item" href="{{url_for('economics')}}">Economics</a>
+                      <a class="dropdown-item" href="{{url_for('tech')}}">Technology</a>
+                      <a class="dropdown-item" href="{{url_for('culture')}}">Culture</a>
+                      <a class="dropdown-item" href="{{url_for('sport')}}">Sport</a>
+                      <a class="dropdown-item" href="{{url_for('env')}}">Environment</a>
+                      <a class="dropdown-item" href="{{url_for('food')}}">Food</a>
+                      <a class="dropdown-item" href="{{url_for('style')}}">Style</a>
                     </div>
                   </div>
                   <!-- a class="nav-link" href="#">Categories</a -->
@@ -67,11 +67,35 @@
         </ul>
         {% endif %}
         {% endwith %}
-        {% block content %}{% endblock %}
+
+        <div class="container">
+          <h1 style="text-align: center;">{% block container %}{% endblock %}</h1>
+          <div class="row">
+            <div class="col">
+                  {% block content %}{% endblock %}
+                  <nav aria-label="Page navigation example">
+                    <ul class="pagination pagination-lg">
+                      {% if prev_url %}
+                      <a href="{{ prev_url }}">Previous</a>
+                      {% endif %}
+                      {% if next_url %}
+                      <a class="next_button" href="{{ next_url }}">Next</a>
+                      {% endif %}
+                    </ul>
+                  </nav>
+      
+      
+          </div>
+      </div>
+
+        
         <!-- jQuery first, then Popper.js, then Bootstrap JS -->
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
     </body>
+  <footer>
+      <p>Footer</p>
+  </footer>
 </html>

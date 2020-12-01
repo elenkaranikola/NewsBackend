@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block container %}World Articles{% endblock %}
+{% block container %}Sport Articles{% endblock %}
 
 {% block content %}
 {% for article in articles %}
@@ -8,8 +8,8 @@
 <div class="card-header">
   <div class="col left">
     
-    {% if article.subtopic == 'World' %}
-    <p><img src="{{url_for('static', filename='worldnews.png')}}"/></p>
+    {% if article.topic == 'Sport' %}
+    <p><img src="{{url_for('static', filename='img/sport.jpg')}}"/></p>
     {% endif %}
   </div>
   <div class="col right">

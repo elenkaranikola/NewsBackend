@@ -14,33 +14,36 @@
         </div>
         <div class="column-with-similar-articles">
            
-            <h4>Read Also</h5><hr>
-            <div class = "container-md">
-                <div class="row">
-                    <div class="col">
-                        <p><strong>Category: {{first_article.subtopic}}</strong></p>
-                        <p>{{first_article.title}}</p>
-                        <p><strong>Author: </strong>{{first_article.author}}</p>
-                        <p><a href="{{url_for('article', id=first_article.id)}}">READ MORE</a></p>
-                    </div>
-                    <div class="col">
-                        <p><strong>Category: {{second_article.subtopic}}</strong></p>
-                        <p>{{second_article.title}}</p>
-                        <p><strong>Author: </strong>{{second_article.author}}</p>
-                        <p><a href="{{url_for('article', id=second_article.id)}}">READ MORE</a></p>
-                    </div>
-                    <div class="col">
-                        <p><strong>Category: {{third_article.subtopic}}</strong></p>
-                        <p>{{third_article.title}}</p>
-                        <p><strong>Author: </strong>{{third_article.author}}</p>
-                        <p><a href="{{url_for('article', id=third_article.id)}}">READ MORE</a></p>
-                    </div>
+            <h4>Read Also</h4><hr>
+
+            <div class="card-group">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Category: {{first_article.subtopic}}</h5>
+                    <p class="card-text">{{first_article.title}}</p>
+                    <a href="{{url_for('article', id=first_article.id)}}" class="btn btn-primary">Read More</a>
+                  </div>
                 </div>
-            </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Category: {{second_article.subtopic}}</h5>
+                    <p class="card-text">{{second_article.title}}</p>
+                    <a href="{{url_for('article', id=second_article.id)}}" class="btn btn-primary">Read More</a>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Category: {{third_article.subtopic}}</h5>
+                    <p class="card-text">{{third_article.title}}</p>
+                    <a href="{{url_for('article', id=second_article.id)}}" class="btn btn-primary">Read More</a>
+                  </div>
+                </div>
+              </div>
+
+
+
+
         </div>
     </div>
 </article>
-<footer>
-    <p>Footer</p>
-</footer>
 {% endblock %}

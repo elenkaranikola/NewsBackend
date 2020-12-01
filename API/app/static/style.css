@@ -5,11 +5,15 @@ h1 {
 }
 
 img {
-    margin-top: 10px;
-    border-radius: 50%;
+    margin-top: 30px;
+    border-radius: 40%;
     margin-left: auto;
     margin-right: auto;
     max-width: 150%;
+}
+
+body {
+  background-color: whitesmoke;
 }
 
 .center {
@@ -26,9 +30,9 @@ img {
 }
  
 .right {
-  margin-left: 0px;
+  margin-left: 20px;
   margin-top: 50px;
-   width: 90%;
+   width: 70%;
 }
 .next_button{
     margin-left: 85%;
@@ -42,7 +46,8 @@ footer {
 }
 
 header {
-   background-color: #666;
+  margin-top: 0px;
+   background-color: #777;
    padding: 30px;
    text-align: center;
    font-size: 35px;

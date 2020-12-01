@@ -37,14 +37,132 @@ def world():
 
     return render_template('world.html', title='All Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
 
-    #article_dicts = {}
-    #index = 0
-    #articles_list = []
-    #for article in articles:
-    #    articles_list.append(article)
+@app.route('/politics')
+def politics():
+    page = request.args.get('page', 1, type=int)
+    articles = Articles.query.filter_by(topic='Politics').paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
 
-    #return render_template('ArticleSizePerCategory.html')
-    #return render_template('home.html', title='All Articles',articles = articles_list)
+    next_url = url_for('politics', page=articles.next_num) \
+        if articles.has_next else None
+    prev_url = url_for('politics', page=articles.prev_num) \
+        if articles.has_prev else None
+
+    return render_template('politics.html', title='Politics Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
+
+@app.route('/culture')
+def culture():
+    page = request.args.get('page', 1, type=int)
+    articles = Articles.query.filter_by(topic='Culture').paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+
+    next_url = url_for('culture', page=articles.next_num) \
+        if articles.has_next else None
+    prev_url = url_for('culture', page=articles.prev_num) \
+        if articles.has_prev else None
+
+    return render_template('culture.html', title='Culture Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
+
+@app.route('/economics')
+def economics():
+    page = request.args.get('page', 1, type=int)
+    articles = Articles.query.filter_by(topic='Economics').paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+
+    next_url = url_for('economics', page=articles.next_num) \
+        if articles.has_next else None
+    prev_url = url_for('economics', page=articles.prev_num) \
+        if articles.has_prev else None
+
+    return render_template('economics.html', title='Economics Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
+
+
+@app.route('/env')
+def env():
+    page = request.args.get('page', 1, type=int)
+    articles = Articles.query.filter_by(topic='Environment').paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+
+    next_url = url_for('env', page=articles.next_num) \
+        if articles.has_next else None
+    prev_url = url_for('env', page=articles.prev_num) \
+        if articles.has_prev else None
+
+    return render_template('env.html', title='Environment Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
+
+
+@app.route('/food')
+def food():
+    page = request.args.get('page', 1, type=int)
+    articles = Articles.query.filter_by(topic='Food').paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+
+    next_url = url_for('food', page=articles.next_num) \
+        if articles.has_next else None
+    prev_url = url_for('food', page=articles.prev_num) \
+        if articles.has_prev else None
+
+    return render_template('food.html', title='Food Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
+
+
+
+@app.route('/society')
+def society():
+    page = request.args.get('page', 1, type=int)
+    articles = Articles.query.filter_by(topic='Society').paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+
+    next_url = url_for('society', page=articles.next_num) \
+        if articles.has_next else None
+    prev_url = url_for('society', page=articles.prev_num) \
+        if articles.has_prev else None
+
+    return render_template('society.html', title='Society Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
+
+
+
+@app.route('/sport')
+def sport():
+    page = request.args.get('page', 1, type=int)
+    articles = Articles.query.filter_by(topic='Sport').paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+
+    next_url = url_for('sport', page=articles.next_num) \
+        if articles.has_next else None
+    prev_url = url_for('sport', page=articles.prev_num) \
+        if articles.has_prev else None
+
+    return render_template('sport.html', title='Sport Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
+
+
+@app.route('/style')
+def style():
+    page = request.args.get('page', 1, type=int)
+    articles = Articles.query.filter_by(topic='Style').paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+
+    next_url = url_for('style', page=articles.next_num) \
+        if articles.has_next else None
+    prev_url = url_for('style', page=articles.prev_num) \
+        if articles.has_prev else None
+
+    return render_template('style.html', title='Style Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
+
+
+@app.route('/tech')
+def tech():
+    page = request.args.get('page', 1, type=int)
+    articles = Articles.query.filter_by(topic='Tech').paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+
+    next_url = url_for('tech', page=articles.next_num) \
+        if articles.has_next else None
+    prev_url = url_for('tech', page=articles.prev_num) \
+        if articles.has_prev else None
+
+    return render_template('tech.html', title='Technology Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
+
+
 
 @app.route("/article/<id>")
 def article(id):
@@ -72,31 +190,6 @@ def search():
 def results():
     return render_template('results.html', title='Search Results', article=article)
 
-
-@app.route("/load")
-def load():
-    """ Route to return the posts """
-
-    time.sleep(0.2)  # Used to simulate delay
-
-    if request.args:
-        counter = int(request.args.get("c"))  # The 'counter' value sent in the QS
-        res = Articles.query.limit(counter).all()
-        #if counter == 0:
-        #    print(f"Returning posts 0 to {quantity}")
-        #    # Slice 0 -> quantity from the db
-        #    res = make_response(jsonify(db[0: quantity]), 200)
-#
-        #elif counter == posts:
-        #    print("No more posts")
-        #    res = make_response(jsonify({}), 200)
-#
-        #else:
-        #    print(f"Returning posts {counter} to {counter + quantity}")
-        #    # Slice counter -> quantity from the db
-        #    res = make_response(jsonify(db[counter: counter + quantity]), 200)
-
-    return res
 
 @app.context_processor
 def override_url_for():
