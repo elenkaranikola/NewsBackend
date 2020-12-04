@@ -9,3 +9,4 @@ class Config(object):
                                          + ":3306/NewsCrawler")
     JSON_AS_ASCII = False
     POSTS_PER_PAGE = 10
+    LANGUAGES = ['en']

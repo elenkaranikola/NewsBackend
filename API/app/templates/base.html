@@ -52,9 +52,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">Charts</a>
                 </li>
-                <li class="nav-item">
+                <!-- li class="nav-item">
                     <a class="nav-link" href="{{ url_for('search') }}">Search</a>
+                </li -->
+                {% if g.search_form %}
+                <li class="nav-item">                  
+                  <form class="navbar-form navbar-left" method="get"
+                          action="{{ url_for('search') }}">
+                      <div class="form-group">
+                          {{ g.search_form.q(size=20, class='form-control',  placeholder=g.search_form.q.label.text) }}
+                      </div>
+                  </form>
                 </li>
+                {% endif %}
               </ul>
             </div>
         </nav>

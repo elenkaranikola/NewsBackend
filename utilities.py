@@ -173,6 +173,23 @@ def MainTester(all_categories):
     final_res = correct_category/wrong_category * 100
     return (final_res)
 
+#def that returns the prediction
+def Predictor(my_input,all_categories):
+    max = 0
+    sum = 0
+    final_category = 'World'
+    input_to_tokens = set(my_input)
+    for category in all_categories:
+        for i in input_to_tokens:
+            if i in all_categories[category]:
+                sum += all_categories[category][i]
+        if max < sum :
+            max = sum
+            final_category = category
+
+    return (final_category)
+
+
 def finalNormalizeFullPath(i):
     text = normalize(i)
     f = open("/Users/elenikaranikola/Desktop/NewsBackend/dependencies/filter_words.txt", "r")
