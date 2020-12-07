@@ -10,6 +10,8 @@ class Articles(db.Model):
     author = db.Column(db.String(50), index=True)
     article_body = db.Column(db.Text, index=True)
     url = db.Column(db.String(200), index=True)
+    __iterable__ = ['article_body']
+
 
     def __repr__(self):
         return '<Article {}>'.format(self.title)
@@ -24,6 +26,9 @@ class SimilarArticles(db.Model):
 
     def __repr__(self):
         return '<SimilarArticles {}>'.format(self.id)
+
+
+
 
 #@login.article_loader
 #def load_article(id):

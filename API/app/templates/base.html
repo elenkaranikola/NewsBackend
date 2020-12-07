@@ -83,7 +83,7 @@
           <div class="row">
             <div class="col">
                   {% block content %}{% endblock %}
-                  <nav aria-label="Page navigation example">
+                  <!--nav aria-label="Page navigation example">
                     <ul class="pagination pagination-lg">
                       {% if prev_url %}
                       <a href="{{ prev_url }}">Previous</a>
@@ -92,9 +92,21 @@
                       <a class="next_button" href="{{ next_url }}">Next</a>
                       {% endif %}
                     </ul>
-                  </nav>
+                  </nav!-->
       
-      
+                  <nav aria-label="...">
+                    <ul class="pager">
+                            <a class="previous{% if not prev_url %} disabled{% endif %}" href="{{ prev_url or '#' }}">
+                                <span aria-hidden="true">&larr;</span>
+                                {{ _('Previous') }}
+                            </a>
+                            <a id = "next_button" class="next{% if not next_url %} disabled{% endif %}" href="{{ next_url or '#' }}">
+                                {{ _('Next') }}
+                                <span aria-hidden="true">&rarr;</span>
+                            </a>
+
+                    </ul>
+                </nav>
           </div>
       </div>
 

@@ -34,8 +34,8 @@ body {
   margin-top: 50px;
    width: 70%;
 }
-.next_button{
-    margin-left: 85%;
+#next_button{
+    margin-left: 80%;
 }
 
 footer {

@@ -1,25 +1,32 @@
 {% extends "base.html" %}
 
+{% block container %}Search Results{% endblock %}
+
 {% block content %}
-    <h1>{{ _('Search Results') }}</h1>
-    {% for article in articles%}
-    <li>{{ article.title }}</li>
-    <li>{{ article.subtopic }}</li>
-    {% endfor %}
-    <nav aria-label="...">
-        <ul class="pager">
-            <li class="previous{% if not prev_url %} disabled{% endif %}">
-                <a href="{{ prev_url or '#' }}">
-                    <span aria-hidden="true">&larr;</span>
-                    {{ _('Previous results') }}
-                </a>
-            </li>
-            <li class="next{% if not next_url %} disabled{% endif %}">
-                <a href="{{ next_url or '#' }}">
-                    {{ _('Next results') }}
-                    <span aria-hidden="true">&rarr;</span>
-                </a>
-            </li>
-        </ul>
-    </nav>
+{% for article in articles %}
+<div class="card border-dark mb-3">
+<div class="card-header">
+  <div class="col left">
+    
+    {% if article.subtopic == 'Food' %}
+    <p><img src="{{url_for('static', filename='img/food.jpg')}}"/></p>
+    {% endif %}
+  </div>
+  <div class="col right">
+    <p><h3><i>{{article.subtopic}} News</i></h3></p>
+  </div>
+</div>
+<div class="card-body">
+    <div class="row">
+        <div class="col-ms-1">
+            <p><strong>{{article.title}}</strong></p>
+            <p>{{article.article_body[0:100]}}...</p>     
+            <p><a class="btn btn-primary btn-sm" href="{{url_for('article', id=article.id)}}" role="button">READ MORE</a></p>
+            <p><strong>Author: </strong>{{article.author}}</p>
+            <p><i>{{article.article_date}}</i></p>
+        </div>
+    </div>
+</div>
+</div>
+{% endfor %}
 {% endblock %}

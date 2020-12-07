@@ -10,6 +10,8 @@ from flask_login import login_required
 from flask_babel import _, get_locale
 from flask_babel import lazy_gettext as _l
 from functools import wraps
+from sqlalchemy import and_, or_, not_
+import re
 import os
 
 @app.route('/',methods=["POST","GET"])
@@ -35,22 +37,19 @@ def before_request():
 
 @app.route('/search')
 def search():
-    if not g.search_form.validate():
-        return redirect(url_for('home'))
-
     page = request.args.get('page', 1, type=int)
     
-    category = Classifier(g.search_form.q.data)
-
-    articles = Articles.query.filter_by(topic=category).paginate(
+    form_input = g.search_form.q.data
+    category = Classifier(form_input)
+    print(form_input)
+    articles = Articles.query.filter(or_(Articles.article_body.contains(form_input), Articles.topic == category)).paginate(
         page, app.config['POSTS_PER_PAGE'], False)
-
     next_url = url_for('search', page=articles.next_num) \
         if articles.has_next else None
     prev_url = url_for('search', page=articles.prev_num) \
         if articles.has_prev else None
 
-    return render_template('search.html', title='All Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
+    return render_template('search.html', title='All Articles',category=category, articles=articles.items, next_url=next_url, prev_url=prev_url)
 
 
 @app.route('/world')
@@ -220,5 +219,17 @@ def article(id):
 def results():
     return render_template('results.html', title='Search Results', article=article)
 
+@app.context_processor
+def override_url_for():
+    return dict(url_for=dated_url_for)
+
+def dated_url_for(endpoint, **values):
+    if endpoint == 'static':
+        filename = values.get('filename', None)
+        if filename:
+            file_path = os.path.join(app.root_path,
+                                 endpoint, filename)
+            values['q'] = int(os.stat(file_path).st_mtime)
+    return url_for(endpoint, **values)
 
 
