@@ -13,6 +13,7 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"/>
         <title>{% block title %}NewsLake{% endblock %}</title>
+        <link rel="shortcut icon" class="favicon" href="{{ url_for('static', filename='img/favicon.png') }}">
         {% endblock %}
     </head>
     <body>
@@ -47,7 +48,7 @@
                   <!-- a class="nav-link" href="#">Categories</a -->
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Analytics</a>
+                    <a class="nav-link" href="{{ url_for('analytics') }}">Analytics</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Charts</a>
@@ -83,7 +84,7 @@
           <div class="row">
             <div class="col">
                   {% block content %}{% endblock %}
-                  <!--nav aria-label="Page navigation example">
+                  <nav aria-label="Page navigation example">
                     <ul class="pagination pagination-lg">
                       {% if prev_url %}
                       <a href="{{ prev_url }}">Previous</a>
@@ -92,9 +93,9 @@
                       <a class="next_button" href="{{ next_url }}">Next</a>
                       {% endif %}
                     </ul>
-                  </nav!-->
+                  </nav>
       
-                  <nav aria-label="...">
+                  <!-- nav aria-label="...">
                     <ul class="pager">
                             <a class="previous{% if not prev_url %} disabled{% endif %}" href="{{ prev_url or '#' }}">
                                 <span aria-hidden="true">&larr;</span>
@@ -106,7 +107,7 @@
                             </a>
 
                     </ul>
-                </nav>
+                </nav -->
           </div>
       </div>
 

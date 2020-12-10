@@ -11,6 +11,7 @@ from flask_babel import _, get_locale
 from flask_babel import lazy_gettext as _l
 from functools import wraps
 from sqlalchemy import and_, or_, not_
+import runpy
 import re
 import os
 
@@ -29,6 +30,49 @@ def home():
 
     return render_template('home.html', title='All Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
 
+@app.route('/analytics')
+def analytics():
+    return render_template('notebooks.html')
+
+@app.route('/article_size_per_category')
+def article_size_per_category():
+    return render_template('notebooks/article_size_per_category.html')
+
+@app.route('/goodnews_badnews')
+def goodnews_badnews():
+    return render_template('notebooks/goodnews_badnews.html')
+
+@app.route('/most_common_countries')
+def most_common_countries():
+    return render_template('notebooks/most_common_countries.html')    
+
+@app.route('/most_common_per_category')
+def most_common_per_category():
+    return render_template('notebooks/most_common_per_category.html')
+
+@app.route('/most_news_source')
+def most_news_source():
+    return render_template('notebooks/most_news_source.html')
+
+@app.route('/most_popular_authors')
+def most_popular_authors():
+    return render_template('notebooks/most_popular_authors.html') 
+
+@app.route('/percentage_top_authors')
+def percentage_top_authors():
+    return render_template('notebooks/percentage_top_authors.html')    
+
+@app.route('/popular_word_per_year')
+def popular_word_per_year():
+    return render_template('notebooks/popular_word_per_year.html')
+
+@app.route('/quality_of_articles')
+def quality_of_articles():
+    return render_template('notebooks/quality_of_articles.html')
+
+@app.route('/word_popularity_in_time')
+def word_popularity_in_time():
+    return render_template('notebooks/word_popularity_in_time.html') 
 
 @app.before_request
 def before_request():

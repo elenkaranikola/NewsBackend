@@ -1,0 +1,112 @@
+{% extends "base.html" %}
+
+{% block container %}Notebooks{% endblock %}
+
+{% block content %}
+<div class = "container">
+    <div class="column">     
+        <div class="card-group">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Articles Size Per Category</h5>
+                <a href="{{url_for('article_size_per_category')}}" class="btn btn-primary">Show</a>
+                <hr>
+                <p><img id = "notebooks" src="{{url_for('static', filename='img/av_length.png')}}"/></p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Persentage of Good and Bad news</h5>
+                <a href="{{url_for('goodnews_badnews')}}" class="btn btn-primary">Show</a>
+                <hr>
+                <p><img id = "notebooks" src="{{url_for('static', filename='img/goodnews_badnews.png')}}"/></p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Most Common Countries</h5>
+                <a href="{{url_for('most_common_countries')}}" class="btn btn-primary">Show</a>
+                <hr>
+                <p><img id = "notebooks" src="{{url_for('static', filename='img/most_common_countries.png')}}"/></p>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="column">     
+        <div class="card-group">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Most Common Words Per Category</h5>
+                <a href="{{url_for('most_common_per_category')}}" class="btn btn-primary">Show</a>
+                <hr>
+                <p><img id = "notebooks" src="{{url_for('static', filename='img/most_common_per_category.png')}}"/></p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Popular News Source</h5>
+                <a href="{{url_for('most_news_source')}}" class="btn btn-primary">Show</a>
+                <hr>
+                <p><img id = "notebooks" src="{{url_for('static', filename='img/most_news_source.png')}}"/></p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Popular Authors</h5>
+                <a href="{{url_for('most_popular_authors')}}" class="btn btn-primary">Show</a>
+                <hr>
+                <p><img id = "notebooks" src="{{url_for('static', filename='img/most_popular_authors.png')}}"/></p>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="column">     
+        <div class="card-group">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Top Authors Articles Percentage</h5>
+                <a href="{{url_for('percentage_top_authors')}}" class="btn btn-primary">Show</a>
+                <hr>
+                <p><img id = "notebooks" src="{{url_for('static', filename='img/percentage_top_authors.png')}}"/></p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Popular Words Per Year</h5>
+                <a href="{{url_for('popular_word_per_year')}}" class="btn btn-primary">Show</a>
+                <hr>
+                <p><img id = "notebooks" src="{{url_for('static', filename='img/popular_word_per_year.png')}}"/></p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Articles Quality</h5>
+                <a href="{{url_for('quality_of_articles')}}" class="btn btn-primary">Show</a>
+                <hr>
+                <p><img id = "notebooks" src="{{url_for('static', filename='img/quality_of_articles.png')}}"/></p>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="column">     
+        <div class="card-group">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Word Popularity In Time</h5>
+                <a href="{{url_for('word_popularity_in_time')}}" class="btn btn-primary">Show</a>
+                <hr>
+                <p><img id = "notebooks" src="{{url_for('static', filename='img/word_popularity_in_time.png')}}"/></p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+              </div>
+            </div>
+          </div>
+    </div>
+</div>
+{% endblock %}

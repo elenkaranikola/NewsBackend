@@ -4,7 +4,7 @@ h1 {
     margin-bottom: 50px;
 }
 
-img {
+.logo {
     margin-top: 30px;
     border-radius: 40%;
     margin-left: auto;
@@ -34,7 +34,7 @@ body {
   margin-top: 50px;
    width: 70%;
 }
-#next_button{
+.next_button{
     margin-left: 80%;
 }
 
@@ -56,4 +56,13 @@ header {
 
 .article-body {
     margin-top: 40px;
+}
+
+#notebooks {
+  border-radius: 20%;
+  max-width: 85%;
+}
+
+.favicon{
+  border-radius: 40%;
 }
