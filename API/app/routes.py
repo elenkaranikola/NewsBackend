@@ -96,143 +96,143 @@ def search():
     return render_template('search.html', title='All Articles',category=category, articles=articles.items, next_url=next_url, prev_url=prev_url)
 
 
-@app.route('/world')
-def world():
+@app.route('/World')
+def World():
     page = request.args.get('page', 1, type=int)
     articles = Articles.query.filter_by(topic='World').paginate(
         page, app.config['POSTS_PER_PAGE'], False)
 
-    next_url = url_for('world', page=articles.next_num) \
+    next_url = url_for('World', page=articles.next_num) \
         if articles.has_next else None
-    prev_url = url_for('world', page=articles.prev_num) \
+    prev_url = url_for('World', page=articles.prev_num) \
         if articles.has_prev else None
 
-    return render_template('world.html', title='All Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
+    return render_template('World.html', title='All Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
 
-@app.route('/politics')
-def politics():
+@app.route('/Politics')
+def Politics():
     page = request.args.get('page', 1, type=int)
     articles = Articles.query.filter_by(topic='Politics').paginate(
         page, app.config['POSTS_PER_PAGE'], False)
 
-    next_url = url_for('politics', page=articles.next_num) \
+    next_url = url_for('Politics', page=articles.next_num) \
         if articles.has_next else None
-    prev_url = url_for('politics', page=articles.prev_num) \
+    prev_url = url_for('Politics', page=articles.prev_num) \
         if articles.has_prev else None
 
-    return render_template('politics.html', title='Politics Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
+    return render_template('Politics.html', title='Politics Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
 
-@app.route('/culture')
-def culture():
+@app.route('/Culture')
+def Culture():
     page = request.args.get('page', 1, type=int)
     articles = Articles.query.filter_by(topic='Culture').paginate(
         page, app.config['POSTS_PER_PAGE'], False)
 
-    next_url = url_for('culture', page=articles.next_num) \
+    next_url = url_for('Culture', page=articles.next_num) \
         if articles.has_next else None
-    prev_url = url_for('culture', page=articles.prev_num) \
+    prev_url = url_for('Culture', page=articles.prev_num) \
         if articles.has_prev else None
 
-    return render_template('culture.html', title='Culture Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
+    return render_template('Culture.html', title='Culture Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
 
-@app.route('/economics')
-def economics():
+@app.route('/Economics')
+def Economics():
     page = request.args.get('page', 1, type=int)
     articles = Articles.query.filter_by(topic='Economics').paginate(
         page, app.config['POSTS_PER_PAGE'], False)
 
-    next_url = url_for('economics', page=articles.next_num) \
+    next_url = url_for('Economics', page=articles.next_num) \
         if articles.has_next else None
-    prev_url = url_for('economics', page=articles.prev_num) \
+    prev_url = url_for('Economics', page=articles.prev_num) \
         if articles.has_prev else None
 
-    return render_template('economics.html', title='Economics Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
+    return render_template('Economics.html', title='Economics Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
 
 
-@app.route('/env')
-def env():
+@app.route('/Environment')
+def Environment():
     page = request.args.get('page', 1, type=int)
     articles = Articles.query.filter_by(topic='Environment').paginate(
         page, app.config['POSTS_PER_PAGE'], False)
 
-    next_url = url_for('env', page=articles.next_num) \
+    next_url = url_for('Environment', page=articles.next_num) \
         if articles.has_next else None
-    prev_url = url_for('env', page=articles.prev_num) \
+    prev_url = url_for('Environment', page=articles.prev_num) \
         if articles.has_prev else None
 
-    return render_template('env.html', title='Environment Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
+    return render_template('Environment.html', title='Environment Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
 
 
-@app.route('/food')
-def food():
+@app.route('/Food')
+def Food():
     page = request.args.get('page', 1, type=int)
     articles = Articles.query.filter_by(topic='Food').paginate(
         page, app.config['POSTS_PER_PAGE'], False)
 
-    next_url = url_for('food', page=articles.next_num) \
+    next_url = url_for('Food', page=articles.next_num) \
         if articles.has_next else None
-    prev_url = url_for('food', page=articles.prev_num) \
+    prev_url = url_for('Food', page=articles.prev_num) \
         if articles.has_prev else None
 
-    return render_template('food.html', title='Food Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
+    return render_template('Food.html', title='Food Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
 
 
 
-@app.route('/society')
-def society():
+@app.route('/Society')
+def Society():
     page = request.args.get('page', 1, type=int)
     articles = Articles.query.filter_by(topic='Society').paginate(
         page, app.config['POSTS_PER_PAGE'], False)
 
-    next_url = url_for('society', page=articles.next_num) \
+    next_url = url_for('Society', page=articles.next_num) \
         if articles.has_next else None
-    prev_url = url_for('society', page=articles.prev_num) \
+    prev_url = url_for('Society', page=articles.prev_num) \
         if articles.has_prev else None
 
-    return render_template('society.html', title='Society Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
+    return render_template('Society.html', title='Society Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
 
 
 
-@app.route('/sport')
-def sport():
+@app.route('/Sport')
+def Sport():
     page = request.args.get('page', 1, type=int)
     articles = Articles.query.filter_by(topic='Sport').paginate(
         page, app.config['POSTS_PER_PAGE'], False)
 
-    next_url = url_for('sport', page=articles.next_num) \
+    next_url = url_for('Sport', page=articles.next_num) \
         if articles.has_next else None
-    prev_url = url_for('sport', page=articles.prev_num) \
+    prev_url = url_for('Sport', page=articles.prev_num) \
         if articles.has_prev else None
 
-    return render_template('sport.html', title='Sport Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
+    return render_template('Sport.html', title='Sport Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
 
 
-@app.route('/style')
-def style():
+@app.route('/Style')
+def Style():
     page = request.args.get('page', 1, type=int)
     articles = Articles.query.filter_by(topic='Style').paginate(
         page, app.config['POSTS_PER_PAGE'], False)
 
-    next_url = url_for('style', page=articles.next_num) \
+    next_url = url_for('Style', page=articles.next_num) \
         if articles.has_next else None
-    prev_url = url_for('style', page=articles.prev_num) \
+    prev_url = url_for('Style', page=articles.prev_num) \
         if articles.has_prev else None
 
-    return render_template('style.html', title='Style Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
+    return render_template('Style.html', title='Style Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
 
 
-@app.route('/tech')
-def tech():
+@app.route('/Tech')
+def Tech():
     page = request.args.get('page', 1, type=int)
     articles = Articles.query.filter_by(topic='Tech').paginate(
         page, app.config['POSTS_PER_PAGE'], False)
 
-    next_url = url_for('tech', page=articles.next_num) \
+    next_url = url_for('Tech', page=articles.next_num) \
         if articles.has_next else None
-    prev_url = url_for('tech', page=articles.prev_num) \
+    prev_url = url_for('Tech', page=articles.prev_num) \
         if articles.has_prev else None
 
-    return render_template('tech.html', title='Technology Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
+    return render_template('Tech.html', title='Technology Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
 
 
 
@@ -246,18 +246,6 @@ def article(id):
     third_article = Articles.query.filter_by(id=similar_articles.third_article).first_or_404()
     return render_template('article.html', article=article, first_article=first_article, second_article=second_article, third_article=third_article)
 
-
-#@app.route("/search",methods=["POST","GET"])
-#def search(): 
-#    form = SearchForm()
-#    if form.validate_on_submit():
-#        article = SimilarArticles.query.filter_by(id=form.index.data).first()
-#        return render_template('results.html', title='Search Results', article=article)
-#        #return (article.first_article)
-#        flash('Login requested for index {}'.format(
-#            form.index.data))
-#        return redirect(url_for('index'))
-#    return render_template('search.html', title='Search Article', form=form)
 
 @app.route("/results")
 def results():
@@ -276,4 +264,6 @@ def dated_url_for(endpoint, **values):
             values['q'] = int(os.stat(file_path).st_mtime)
     return url_for(endpoint, **values)
 
-
+@app.route('/go_back/<string:topic>',methods=['GET'])
+def go_back(topic):
+    return redirect(url_for(topic))

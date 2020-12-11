@@ -3,6 +3,7 @@
 {% block container %}Style Articles{% endblock %}
 
 {% block content %}
+<a href="{{ url_for('home') }}" class="btn btn-secondary">Home</a><br>
 {% for article in articles %}
 <div class="card border-dark mb-3">
 <div class="card-header">

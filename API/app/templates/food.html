@@ -3,13 +3,14 @@
 {% block container %}Food Articles{% endblock %}
 
 {% block content %}
+<a href="{{ url_for('home') }}" class="btn btn-secondary">Home</a><br>
 {% for article in articles %}
 <div class="card border-dark mb-3">
 <div class="card-header">
   <div class="col left">
     
     {% if article.subtopic == 'Food' %}
-    <p><img class = "logo" src="{{url_for('static', filename='img/food.jpg')}}"/></p>
+    <p><img class = "logo" src="/static/img/food.jpg"></p>
     {% endif %}
   </div>
   <div class="col right">

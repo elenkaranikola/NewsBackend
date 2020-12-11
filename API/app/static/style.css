@@ -1,5 +1,5 @@
 h1 {
-    color: #00bfff;
+    color: #19B6FF;
     margin-top: 50px;
     margin-bottom: 50px;
 }
@@ -39,7 +39,7 @@ body {
 }
 
 footer {
-  background-color: #777;
+  background-color: #717A82;
   padding: 10px;
   text-align: center;
   color: white;
@@ -47,7 +47,7 @@ footer {
 
 header {
   margin-top: 0px;
-   background-color: #777;
+   background-color: #717A82; /*#6B7883;  /*606B75;*/
    padding: 30px;
    text-align: center;
    font-size: 35px;
@@ -65,4 +65,15 @@ header {
 
 .favicon{
   border-radius: 40%;
+}
+
+.button{
+  color: black;
+  font-size: 16px;
+  width: 250px;
+  padding: 12px 28px;
+  border-radius: 12px;
+  border: 2px solid grey;
+  background-color: gray;
+  color: white;
 }
