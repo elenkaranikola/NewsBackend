@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-{% block container %}All Articles{% endblock %}
+{% block container %}Order By Newest Publishes{% endblock %}
 
 {% block content %}
 <div class="dropdown">
@@ -17,9 +17,10 @@
 </div>
 
 {% for article in articles %}
-<div class="card border-grey mb-3">
+<div class="card border-dark mb-3">
 <div class="card-header">
-  <div class="col left">    
+  <div class="col left">
+    
     {% if article.topic == 'World' %}
     <p><img class = "logo" src="{{url_for('static', filename='img/worldnews.png')}}"/></p>
     {% elif article.topic == 'Culture'%}
@@ -47,11 +48,15 @@
   </div>
 </div>
 <div class="card-body">
-  <p><strong>{{article.title}}</strong></p>
-  <p>{{article.article_body[0:100]}}...</p>     
-  <p><a class="btn btn-primary btn-sm" href="{{url_for('article', id=article.id)}}" role="button">READ MORE</a></p>
-  <p><strong>Author: </strong>{{article.author}}</p>
-  <p><i>{{article.article_date}}</i></p>
+    <div class="row">
+        <div class="col-ms-1">
+            <p><strong>{{article.title}}</strong></p>
+            <p>{{article.article_body[0:100]}}...</p>     
+            <p><a class="btn btn-primary btn-sm" href="{{url_for('article', id=article.id)}}" role="button">READ MORE</a></p>
+            <p><strong>Author: </strong>{{article.author}}</p>
+            <p><i>{{article.article_date}}</i></p>
+        </div>
+    </div>
 </div>
 </div>
 {% endfor %}

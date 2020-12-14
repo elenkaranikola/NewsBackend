@@ -10,7 +10,9 @@ from flask_login import login_required
 from flask_babel import _, get_locale
 from flask_babel import lazy_gettext as _l
 from functools import wraps
-from sqlalchemy import and_, or_, not_
+from sqlalchemy import and_, or_, not_, desc
+from sqlalchemy.sql.expression import func
+#Item.query.order_by(func.rand()).offset(20).limit(10).all()
 import runpy
 import re
 import os
@@ -20,7 +22,7 @@ import os
 @app.route('/home')
 def home():
     page = request.args.get('page', 1, type=int)
-    articles = Articles.query.paginate(
+    articles = Articles.query.order_by(func.rand()).paginate(
         page, app.config['POSTS_PER_PAGE'], False)
 
     next_url = url_for('home', page=articles.next_num) \
@@ -30,13 +32,79 @@ def home():
 
     return render_template('home.html', title='All Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
 
+@app.route('/alphabetical')
+def alphabetical():
+    page = request.args.get('page', 1, type=int)
+    articles = Articles.query.order_by(Articles.title).paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+
+    next_url = url_for('alphabetical', page=articles.next_num) \
+        if articles.has_next else None
+    prev_url = url_for('alphabetical', page=articles.prev_num) \
+        if articles.has_prev else None
+
+    return render_template('alphabetical.html', title='Alphabetical order', articles=articles.items, next_url=next_url, prev_url=prev_url)
+
+@app.route('/alphabeticalDesc')
+def alphabeticalDesc():
+    page = request.args.get('page', 1, type=int)
+    articles = Articles.query.order_by(desc(Articles.title)).paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+
+    next_url = url_for('alphabeticalDesc', page=articles.next_num) \
+        if articles.has_next else None
+    prev_url = url_for('alphabeticalDesc', page=articles.prev_num) \
+        if articles.has_prev else None
+
+    return render_template('alphabeticalDesc.html', title='Alphabetical order desc', articles=articles.items, next_url=next_url, prev_url=prev_url)
+
+@app.route('/newest')
+def newest():
+    page = request.args.get('page', 1, type=int)
+    articles = Articles.query.order_by(desc(Articles.article_date)).paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+
+    next_url = url_for('newest', page=articles.next_num) \
+        if articles.has_next else None
+    prev_url = url_for('newest', page=articles.prev_num) \
+        if articles.has_prev else None
+
+    return render_template('newest.html', title='Newest Publishes', articles=articles.items, next_url=next_url, prev_url=prev_url)
+
+@app.route('/oldest')
+def oldest():
+    page = request.args.get('page', 1, type=int)
+    articles = Articles.query.order_by(Articles.article_date).paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+
+    next_url = url_for('oldest', page=articles.next_num) \
+        if articles.has_next else None
+    prev_url = url_for('oldest', page=articles.prev_num) \
+        if articles.has_prev else None
+
+    return render_template('oldest.html', title='Oldest Publishes', articles=articles.items, next_url=next_url, prev_url=prev_url)
+
+@app.route('/alphabeticalCat')
+def alphabeticalCat():
+    page = request.args.get('page', 1, type=int)
+    articles = Articles.query.order_by(Articles.subtopic).paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+
+    next_url = url_for('alphabeticalCat', page=articles.next_num) \
+        if articles.has_next else None
+    prev_url = url_for('alphabeticalCat', page=articles.prev_num) \
+        if articles.has_prev else None
+
+    return render_template('alphabeticalCat.html', title='Alphabetical Category order', articles=articles.items, next_url=next_url, prev_url=prev_url)
+
+
 @app.route('/analytics')
 def analytics():
     return render_template('notebooks.html')
 
 @app.route('/article_size_per_category')
 def article_size_per_category():
-    return render_template('notebooks/article_size_per_category.html')
+    return render_template('notebooks/article_size.html')
 
 @app.route('/goodnews_badnews')
 def goodnews_badnews():
