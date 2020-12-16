@@ -97,6 +97,13 @@ def alphabeticalCat():
 
     return render_template('alphabeticalCat.html', title='Alphabetical Category order', articles=articles.items, next_url=next_url, prev_url=prev_url)
 
+@app.route('/charts')
+def charts():
+    return render_template('charts.html')
+
+@app.route('/articles_available_from_each_year')
+def articles_available_from_each_year():
+    return render_template('charts/articles_available_from_each_year.html')    
 
 @app.route('/analytics')
 def analytics():

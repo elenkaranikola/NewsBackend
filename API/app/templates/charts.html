@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block container %}Charts{% endblock %}
+
+{% block content %}
+<div class = "container-xl">
+    <div class="column">     
+        <div class="card-group">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Articles Available From Each Year</h5>
+                <a href="{{ url_for('articles_available_from_each_year') }}" class="btn btn-primary">Show</a>
+                <hr>
+                <p><img id = "charts" src="#"/></p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">8 Sites For Begginers Reading</h5>
+                <a href="#" class="btn btn-primary">Show</a>
+                <hr>
+                <p><img id = "charts" src="#"/></p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Categorize Sites</h5>
+                <a href="#" class="btn btn-primary">Show</a>
+                <hr>
+                <p><img id = "charts" src="#"/></p>
+              </div>
+            </div>
+          </div>
+    </div>
+    <div class="column">     
+        <div class="card-group">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Analysis Of Available Articles Size</h5>
+                <a href="#" class="btn btn-primary">Show</a>
+                <hr>
+                <p><img id = "charts" src="#"/></p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Map of the Countries Discussed</h5>
+                <a href="#" class="btn btn-primary">Show</a>
+                <hr>
+                <p><img id = "charts" src="#"/></p>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title">Sites Analysis</h5>
+                <a href="#" class="btn btn-primary">Show</a>
+                <hr>
+                <p><img id = "charts" src="#"/></p>
+              </div>
+            </div>
+          </div>
+    </div>
+
+{% endblock %}
