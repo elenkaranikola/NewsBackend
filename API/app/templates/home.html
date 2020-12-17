@@ -1,8 +1,21 @@
 {% extends "base.html" %}
 
-{% block container %}All Articles{% endblock %}
+{% block container %}
+All Articles
+{% endblock %}
+{% block about %}
+<div style="padding-top: 2cm; padding-bottom: 2cm; align-content: center;">
+  <h2 style="text-align: center;"><i>About:</i></h2>
+    <p class = "about-body">This is smart website for newsreports. We collected 35.000 greek articles from the web and and give your the opportunity to browse through them based on their category their date etc,
+    see analytics about their quality, difficulty and subject. Based on the article you choose to read we suggest to you three similar articles from our database to keep reading.
+    Finaly we provide a classificator that given an article as input it categorises it in one of our ten categories.
+    </p>
+  <h5 style="text-align: center;">Happy Reading</h5>
+</div>
+{% endblock %}
 
 {% block content %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Crimson+Pro&family=Literata">
 <div class="dropdown">
   <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Sort By
@@ -43,7 +56,7 @@
     {% endif %}
   </div>
   <div class="col right">
-    <p><h2><i>{{article.topic}} News</i></h2></p>
+    <p><h2 style="font-family: 'Crimson Pro', serif; font-size: 48px;">{{article.topic}} News</h2></p>
   </div>
 </div>
 <div class="card-body">

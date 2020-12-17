@@ -20,8 +20,6 @@ class SearchForm(FlaskForm):
             kwargs['csrf_enabled'] = False
         super(SearchForm, self).__init__(*args, **kwargs)
 
-
-
-class NavSearchForm(FlaskForm):
-    string = StringField('String', validators=[DataRequired()])
-    submit = SubmitField('NavSearchForm')
+class ClassifierForm(FlaskForm):
+    index = StringField('Enter your text here', validators=[DataRequired()])
+    submit = SubmitField('Categorize')

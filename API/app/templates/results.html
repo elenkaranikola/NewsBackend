@@ -1,16 +1,38 @@
 {% extends "base.html" %}
 
+{% block container %}Classifier Naive Bayes{% endblock %}
+
 {% block content %}
-<div>
-    <ul>
-        <!--h3>Closest Ids articles for the article :{{ article.id}}</h3>
-        <li>{{ article.first_article }}</li>
-        <li>{{ article.second_article }}</li>
-        <li>{{ article.third_article }}</li-->
-        {% for article in articles%}
-        <li>{{ article.title }}</li>
-        <li>{{ article.subtopic }}</li>
-        {% endfor %}
-    </ul>
+<a href="{{ url_for('classifier') }}" class="btn btn-secondary">Back</a><br>
+<div id = "classifier_head">
+    <h3>The given article</h3>
+    <p>"{{ text }}"</p>
+    <h3>belongs to category:</h3>
 </div>
+<div>
+    <h3>{{ category }}</h3>
+    <h4>Similar Articles</h4><hr>
+</div>
+{% for article in articles %}
+<div class="card border-grey mb-3">
+<div class="card-header">
+  <div class="col left">
+  </div>
+  <div class="col right">
+    <p><h2><i>{{article.subtopic}} News</i></h2></p>
+  </div>
+</div>
+<div class="card-body">
+    <div class="row">
+        <div class="col-ms-1">
+            <p><strong>{{article.title}}</strong></p>
+            <p>{{article.article_body[0:100]}}...</p>     
+            <p><a class="btn btn-primary btn-sm" href="{{url_for('article', id=article.id)}}" role="button">READ MORE</a></p>
+            <p><strong>Author: </strong>{{article.author}}</p>
+            <p><i>{{article.article_date}}</i></p>
+        </div>
+    </div>
+</div>
+</div>
+{% endfor %}
 {% endblock %}

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block container %}Classifier Naive Bayes{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('home') }}" class="btn btn-secondary">Home</a><br>
+<div class="classifier_search_header">
+    <h5>Based on the Naive Bayes algorithm enter your article and we will predict its category</h5>
+</div>
+<form action="" method="post" novalidate class="classifier_search">
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.index.label }}<br>
+        {{ form.index(size=32, placeholder="Search..") }}
+    </p>
+    <p>{{ form.submit() }}</p>
+</form>
+{% endblock %}

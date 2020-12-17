@@ -4,7 +4,7 @@ import random
 import time
 from app import app
 from app.classifier import Classifier
-from app.forms import LoginForm,SearchForm,NavSearchForm
+from app.forms import LoginForm,SearchForm,ClassifierForm
 from app.models import SimilarArticles,Articles
 from flask_login import login_required
 from flask_babel import _, get_locale
@@ -12,7 +12,6 @@ from flask_babel import lazy_gettext as _l
 from functools import wraps
 from sqlalchemy import and_, or_, not_, desc
 from sqlalchemy.sql.expression import func
-#Item.query.order_by(func.rand()).offset(20).limit(10).all()
 import runpy
 import re
 import os
@@ -31,6 +30,19 @@ def home():
         if articles.has_prev else None
 
     return render_template('home.html', title='All Articles', articles=articles.items, next_url=next_url, prev_url=prev_url)
+
+
+@app.route('/classifier',methods=["POST","GET"])
+def classifier():
+    form = ClassifierForm()
+    if form.validate_on_submit():
+        text = form.index.data
+        category = Classifier(form.index.data)
+        articles = Articles.query.filter_by(topic=category).limit(10)
+        #article = SimilarArticles.query.filter_by(id=form.index.data).first()
+        return render_template('results.html', title='Search Results', category=category, text=text[0:100], articles = articles)
+    return render_template('classifier.html', title='Search Article', form=form)
+
 
 @app.route('/alphabetical')
 def alphabetical():
