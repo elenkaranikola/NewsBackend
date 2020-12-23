@@ -1,14 +1,15 @@
 {% extends "base.html" %}
 
-{% block container %}Charts{% endblock %}
+{% block container %}Total number of articles available in our database per year{% endblock %}
 
 {% block content %}
-
+<a href="{{ url_for('charts') }}" class="btn btn-secondary">Back to Charts</a><br>
 <script src="//cdn.amcharts.com/lib/4/core.js"></script>
 <script src="//cdn.amcharts.com/lib/4/charts.js"></script>
 <script src="//cdn.amcharts.com/lib/4/themes/animated.js"></script>
 <script src="//cdn.amcharts.com/lib/4/themes/kelly.js"></script>
-<div id="chartdiv" style="width: 900px; height: 800px;"></div>
+<script src="http://requirejs.org/"></script>
+<div id="chartdiv" style="width: 900px; height: 800px; margin: auto;">
 
 <script>
 // Apply chart themes
@@ -18,91 +19,194 @@ am4core.useTheme(am4themes_kelly);
 // Create chart instance
 var chart = am4core.create("chartdiv", am4charts.XYChart);
 
+
 chart.marginRight = 400;
 
 // Add data
-chart.data = [{
-  "country": "Lithuania",
-  "research": 501.9,
-  "marketing": 250,
-  "sales": 199
+
+chart.data =  [{
+  "year": "2020", 
+  "World": 4373, 
+  "Sport": 3934, 
+  "Culture": 2949, 
+  "Society": 4473, 
+  "Economics": 3128, 
+  "Environment": 818, 
+  "Politics": 4401, 
+  "Tech": 2413, 
+  "Food": 949, 
+  "Style": 1447
+},{
+  "year": "2019", 
+  "World": 59, 
+  "Sport": 402, 
+  "Culture": 780, 
+  "Society": 132, 
+  "Economics": 106, 
+  "Environment": 724, 
+  "Politics": 24, 
+  "Tech": 872, 
+  "Food": 307, 
+  "Style": 388
 }, {
-  "country": "Czech Republic",
-  "research": 301.9,
-  "marketing": 222,
-  "sales": 251
+  "year": "2018", 
+  "World": 38, 
+  "Sport": 107, 
+  "Culture": 29, 
+  "Society": 118, 
+  "Economics": 161, 
+  "Environment": 226,
+  "Politics": 15, 
+  "Tech": 52, 
+  "Food": 75, 
+  "Style": 242
 }, {
-  "country": "Ireland",
-  "research": 201.1,
-  "marketing": 170,
-  "sales": 199
+  "year": "2017", 
+  "World": 0, 
+  "Sport": 78, 
+  "Culture": 25, 
+  "Society": 60, 
+  "Economics": 122, 
+  "Environment": 33, 
+  "Politics": 72, 
+  "Tech": 60, 
+  "Food": 79,
+  "Style": 39
 }, {
-  "country": "Germany",
-  "research": 165.8,
-  "marketing": 122,
-  "sales": 90
+  "year": "2016",
+  "World": 0,
+  "Sport": 133, 
+  "Culture": 119, 
+  "Society": 76, 
+  "Economics": 238, 
+  "Environment": 6, 
+  "Politics": 95, 
+  "Tech": 98,
+  "Food": 71, 
+  "Style": 6
 }, {
-  "country": "Australia",
-  "research": 139.9,
-  "marketing": 99,
-  "sales": 252
+  "year": "2015",
+  "World": 0, 
+  "Sport": 48, 
+  "Culture": 14, 
+  "Society": 13, 
+  "Economics": 38, 
+  "Environment": 1, 
+  "Politics": 54, 
+  "Tech": 28, 
+  "Food": 93, 
+  "Style": 0
 }, {
-  "country": "Austria",
-  "research": 128.3,
-  "marketing": 85,
-  "sales": 84
+  "year": "2014", 
+  "World": 1, 
+  "Sport": 20, 
+  "Culture": 42, 
+  "Society": 1, 
+  "Economics": 1, 
+  "Environment": 0, 
+  "Politics": 1, 
+  "Tech": 2, 
+  "Food": 98, 
+  "Style": 1
 }, {
-  "country": "UK",
-  "research": 99,
-  "marketing": 93,
-  "sales": 142
-}, {
-  "country": "Belgium",
-  "research": 60,
-  "marketing": 50,
-  "sales": 55
-}, {
-  "country": "The Netherlands",
-  "research": 50,
-  "marketing": 42,
-  "sales": 25
-}];
+  "year": "2013", 
+  "World": 0, 
+  "Sport": 21, 
+  "Culture": 57, 
+  "Society": 1, 
+  "Economics": 0, 
+  "Environment": 0, 
+  "Politics": 0, 
+  "Tech": 3, 
+  "Food": 37, 
+  "Style": 0
+}]
 
 
 // Create axes
 var categoryAxis = chart.xAxes.push(new am4charts.CategoryAxis());
-categoryAxis.dataFields.category = "country";
-categoryAxis.title.text = "Local country offices";
+categoryAxis.dataFields.category = "year";
+categoryAxis.title.text = "Year";
 categoryAxis.renderer.grid.template.location = 0;
 categoryAxis.renderer.minGridDistance = 20;
 
 
 var  valueAxis = chart.yAxes.push(new am4charts.ValueAxis());
-valueAxis.title.text = "Expenditure (M)";
+valueAxis.title.text = "Number of Articles";
 
 // Create series
 var series = chart.series.push(new am4charts.ColumnSeries());
-series.dataFields.valueY = "research";
-series.dataFields.categoryX = "country";
-series.name = "Research";
+series.dataFields.valueY = "World";
+series.dataFields.categoryX = "year";
+series.name = "World";
 series.tooltipText = "{name}: [bold]{valueY}[/]";
 series.stacked = true;
 
 var series2 = chart.series.push(new am4charts.ColumnSeries());
-series2.dataFields.valueY = "marketing";
-series2.dataFields.categoryX = "country";
-series2.name = "Marketing";
+series2.dataFields.valueY = "Sport";
+series2.dataFields.categoryX = "year";
+series2.name = "Sport";
 series2.tooltipText = "{name}: [bold]{valueY}[/]";
 series2.stacked = true;
 
 var series3 = chart.series.push(new am4charts.ColumnSeries());
-series3.dataFields.valueY = "sales";
-series3.dataFields.categoryX = "country";
-series3.name = "Sales";
+series3.dataFields.valueY = "Culture";
+series3.dataFields.categoryX = "year";
+series3.name = "Culture";
 series3.tooltipText = "{name}: [bold]{valueY}[/]";
 series3.stacked = true;
+
+var series4 = chart.series.push(new am4charts.ColumnSeries());
+series4.dataFields.valueY = "Society";
+series4.dataFields.categoryX = "year";
+series4.name = "Society";
+series4.tooltipText = "{name}: [bold]{valueY}[/]";
+series4.stacked = true;
+
+var series5 = chart.series.push(new am4charts.ColumnSeries());
+series5.dataFields.valueY = "Economics";
+series5.dataFields.categoryX = "year";
+series5.name = "Economics";
+series5.tooltipText = "{name}: [bold]{valueY}[/]";
+series5.stacked = true;
+
+var series6 = chart.series.push(new am4charts.ColumnSeries());
+series6.dataFields.valueY = "Environment";
+series6.dataFields.categoryX = "year";
+series6.name = "Environment";
+series6.tooltipText = "{name}: [bold]{valueY}[/]";
+series6.stacked = true;
+
+var series7 = chart.series.push(new am4charts.ColumnSeries());
+series7.dataFields.valueY = "Politics";
+series7.dataFields.categoryX = "year";
+series7.name = "Politics";
+series7.tooltipText = "{name}: [bold]{valueY}[/]";
+series7.stacked = true;
+
+var series8 = chart.series.push(new am4charts.ColumnSeries());
+series8.dataFields.valueY = "Tech";
+series8.dataFields.categoryX = "year";
+series8.name = "Tech";
+series8.tooltipText = "{name}: [bold]{valueY}[/]";
+series8.stacked = true;
+
+var series9 = chart.series.push(new am4charts.ColumnSeries());
+series9.dataFields.valueY = "Food";
+series9.dataFields.categoryX = "year";
+series9.name = "Food";
+series9.tooltipText = "{name}: [bold]{valueY}[/]";
+series9.stacked = true;
+
+var series10 = chart.series.push(new am4charts.ColumnSeries());
+series10.dataFields.valueY = "Style";
+series10.dataFields.categoryX = "year";
+series10.name = "Style";
+series10.tooltipText = "{name}: [bold]{valueY}[/]";
+series10.stacked = true;
 
 // Add cursor
 chart.cursor = new am4charts.XYCursor();
 </script>
+</div>
 {% endblock %}

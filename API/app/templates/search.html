@@ -38,7 +38,7 @@
         <div class="col-ms-1">
             <p><strong>{{article.title}}</strong></p>
             <p>{{article.article_body[0:100]}}...</p>     
-            <p><a class="btn btn-primary btn-sm" href="{{url_for('article', id=article.id)}}" role="button">READ MORE</a></p>
+            <p><a class="btn btn-primary btn-sm" href="{{url_for('articlesFromSearch', id=article.id, search=search)}}" role="button">READ MORE</a></p>
             <p><strong>Author: </strong>{{article.author}}</p>
             <p><i>{{article.article_date}}</i></p>
         </div>

@@ -11,23 +11,23 @@
                 <h2 class="card-title">Articles Available From Each Year</h2>
                 <a href="{{ url_for('articles_available_from_each_year') }}" class="btn btn-primary">Show</a>
                 <hr>
-                <p><img id = "charts" src="#"/></p>
+                <p><img id = "charts" src="{{url_for('static', filename='img/articles_count.png')}}"/></p>
               </div>
             </div>
             <div class="card">
               <div class="card-body">
-                <h2 class="card-title">8 Sites For Begginers Reading</h2>
-                <a href="#" class="btn btn-primary">Show</a>
+                <h2 class="card-title">8 Sites For Beginners Reading</h2>
+                <a href="{{ url_for('beginner_reading') }}" class="btn btn-primary">Show</a>
                 <hr>
-                <p><img id = "charts" src="#"/></p>
+                <p><img id = "charts" src="{{url_for('static', filename='img/beginner_reading.png')}}"/></p>
               </div>
             </div>
             <div class="card">
               <div class="card-body">
                 <h2 class="card-title">Categorize Sites</h2>
-                <a href="#" class="btn btn-primary">Show</a>
+                <a href="{{ url_for('categorize_sites') }}" class="btn btn-primary">Show</a>
                 <hr>
-                <p><img id = "charts" src="#"/></p>
+                <p><img id = "charts" src="{{url_for('static', filename='img/categorize_sites.png')}}"/></p>
               </div>
             </div>
           </div>

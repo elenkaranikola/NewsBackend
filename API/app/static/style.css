@@ -1,3 +1,10 @@
+/*
+_______________________________________________________________________________________________________________________________________
+_________________________________________________TITLE STYLES__________________________________________________________________________
+SO FAR WE CREATED STYLES FOR H1, H3, H4, H5
+_______________________________________________________________________________________________________________________________________
+*/
+
 h1 { 
   color: #1E4F80; 
   margin-top: 60px;
@@ -11,7 +18,7 @@ h1 {
 }
 
 h3 {
-  font-family: 'Rouge Script', cursive;
+  font-family: 'Crimson Pro', serif;
   font-size: 50px;
 } 
 
@@ -21,9 +28,16 @@ h4 {
 }
 
 h5 {
-  font-family: 'Rouge Script', cursive;
+  font-family: 'Crimson Pro', serif;
   font-size: 30px;
 }
+
+/*
+____________________________________________________________________________________________________________________________________
+____________________________________________________IMAGE STYLES____________________________________________________________________
+SO FAR WE HAVE STYLES FOR OUR FAVICON, LOGO AND DROPDOWN IMAGES
+____________________________________________________________________________________________________________________________________
+*/
 
 .logo {
     margin-top: 30px;
@@ -32,6 +46,7 @@ h5 {
     margin-right: auto;
     max-width: 100%;
 }
+
 .tiny {
   margin-top: 0px;
   border-radius: 40%;
@@ -39,12 +54,17 @@ h5 {
   margin-right: auto;
   max-width: 20%;
 }
-.container-lg{
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px; /* future proofing */
-  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+
+.favicon{
+  border-radius: 40%;
 }
+
+/*
+___________________________________________________________________________________________________________________________________________
+_____________________________________________________________________STYLES FOR OUR CARDS__________________________________________________
+WE HAVE STYLES FOR THE CONTAINER, CARDS, LEFT AND RIGHT COLUMN OF THE CARDS
+____________________________________________________________________________________________________________________________________________
+*/
 .card{
   -moz-border-radius: 10px;
   -webkit-border-radius: 10px;
@@ -52,7 +72,39 @@ h5 {
   -khtml-border-radius: 10px; /* for old Konqueror browsers */
 }
 
+.card-body{
+  font-family: 'Crimson Pro', serif;
+  font-size: 20px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+}
 
+.center {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+}
+.col {
+ float: left;
+}
+
+.left {
+width: 10%;
+}
+
+.right {
+margin-top: 20px;
+margin-left: 20px;
+width: 70%;
+}
+/*
+_______________________________________________________________________________________________________________________________________
+_____________________________________________________________________STYLE FOR OUR BASE.HTML____________________________________________
+WE HAVE STYLE FOR THE BACKROUND THAT APPLIES TO ALL HTML PAGES
+________________________________________________________________________________________________________________________________________
+*/
 body {
   background-color: whitesmoke/*#000000/**/;
 }
@@ -65,57 +117,15 @@ body {
   width: 30cm;
 }
 
-.card-body{
-  font-family: 'Crimson Pro', serif;
-  font-size: 20px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px; /* future proofing */
-  -khtml-border-radius: 10px; /* for old Konqueror browsers */
-}
-
-.article-body{
-  font-family: 'Crimson Pro', serif;
-  font-size: 20px;
-}
-
-#navbarSupportedContent{
-  font-family: 'Crimson Pro', serif;
-  font-size: 25px;
-}
-
-.dropdown-menu{
-  font-family: 'Crimson Pro', serif;
-  font-size: 18px; 
-}
-
-.center {
-    margin-left: auto;
-    margin-right: auto;
-    width: 100%;
-  }
-.col {
-   float: left;
-}
- 
-.left {
-  width: 10%;
-}
- 
-.right {
-  margin-top: 20px;
-  margin-left: 20px;
-  width: 70%;
-}
-#next_button{
-    margin-left: 88%;
-}
-
 footer {
   background-color: #717A82;
   padding: 10px;
   text-align: center;
   color: white;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  -khtml-border-radius: 10px; /* for old Konqueror browsers */
 }
 
 header {
@@ -127,26 +137,59 @@ header {
   color: white;
  }
 
-#classifier_head {
-  margin-top: 0px;
-  background-color: #C3D1DE;
-  padding: 30px;
+#navbarSupportedContent{
+  font-family: 'Crimson Pro', serif;
+  font-size: 25px;
+}
+
+.dropdown-menu{
+  font-family: 'Crimson Pro', serif;
+  font-size: 18px; 
+}
+
+.container-lg{
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+}
+
+/*
+_________________________________________________________________________________________________________________________________________
+___________________________________________________________________STYLE FOR OUR BUTTONS_________________________________________________
+WE HAVE STYLE FOR FOR OUT NAVBAR, SEARCH, PAGE BUTTONS
+__________________________________________________________________________________________________________________________________________
+*/
+
+#dropdownMenuButton{
+  font-size: 19; 
+  margin: 2px; 
+  width:160px; 
+  height: 50px;
+}
+
+#searchbasebar{
+  font-size: 19;
+  margin-top: 18px; 
+  margin-left: 10cm;
+}
+
+.d-flex{
+  height: 50px;
+  width: 10cm;
+}
+
+#basebuttons{
+  vertical-align: middle;
   text-align: center;
-  font-size: 35px;
-  color: black; 
+  font-size: 19; 
+  margin: 2px; 
+  width:160px;
+  height: 45;
 }
 
-.article-body {
-    margin-top: 40px;
-}
-
-#notebooks {
-  border-radius: 20%;
-  max-width: 85%;
-}
-
-.favicon{
-  border-radius: 40%;
+#next_button{
+  margin-left: 88%;
 }
 
 .button{
@@ -161,6 +204,8 @@ header {
 }
 
 .btn {
+  vertical-align: middle;
+  text-align: center;
   margin-top: 4px;
   margin-bottom: 4px;
   -moz-border-radius: 10px;
@@ -170,8 +215,29 @@ header {
 }
 
 .btn-group {
+  vertical-align: middle;
+  text-align: center;
   margin: 2px;
 }
+
+/*
+_____________________________________________________________________________________________________________________________________________
+___________________________________________________STYLES FOR OUR ARTICLE.HTML PAGE_______________________________________________________
+______________________________________________________________________________________________________________________________________________
+*/
+
+.article-body{
+  font-family: 'Crimson Pro', serif;
+  font-size: 20px;
+  margin-top: 40px;
+}
+
+/*
+_____________________________________________________________________________________________________________________________________________
+___________________________________________________STYLES FOR OUR FORMS USED_______________________________________________________
+______________________________________________________________________________________________________________________________________________
+*/
+
 
 .form {
   margin-top: 10px;
@@ -182,15 +248,61 @@ header {
   -khtml-border-radius: 10px; /* for old Konqueror browsers */
 }
 
+
+/*
+_____________________________________________________________________________________________________________________________________________
+___________________________________________________STYLES FOR OUR CHART.HTML PAGE_______________________________________________________
+______________________________________________________________________________________________________________________________________________
+*/
+
+
+#notebooks {
+  border-radius: 20%;
+  max-width: 85%;
+}
+
+/*
+_____________________________________________________________________________________________________________________________________________
+___________________________________________________STYLES FOR OUR CHART.HTML PAGE_______________________________________________________
+______________________________________________________________________________________________________________________________________________
+*/
+
 #chartdiv {
   width: 100%;
   height: 400px;
+}
+
+#charts {
+  border-radius: 20%;
+  max-width: 85%;
+  margin: auto;
+}
+
+/*
+_____________________________________________________________________________________________________________________________________________
+___________________________________________________STYLES FOR OUR CLASSIFIER.HTML PAGE_______________________________________________________
+______________________________________________________________________________________________________________________________________________
+*/
+
+#classifier_head {
+  margin-top: 0px;
+  background-color: #C3D1DE;
+  padding: 30px;
+  text-align: center;
+  font-size: 35px;
+  color: black; 
 }
 
 .classifier_search {
   padding: 50px; 
   text-align: center;
   font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px; /* future proofing */
+  -khtml-border-radius: 10px; /* for old Konqueror browsers */
 }
 
 .classifier_search_header{

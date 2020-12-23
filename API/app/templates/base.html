@@ -18,11 +18,11 @@
     </head>
     <body>
       <div class="btn-group" >
-        <a class="btn btn-secondary btn-xl" href="{{url_for('home')}}" role="button" style="font-size: 19; margin: 2px;" >Home</a>
+        <a class="btn btn-secondary" id="basebuttons" href="{{url_for('home')}}" role="button">Home</a>
       </div>
       <div class="btn-group">
         <div class="dropdown show">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" style="font-size: 19;" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Categories
           </button>
           <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -40,19 +40,19 @@
         </div>
       </div>
       <div class="btn-group">
-          <a class="btn btn-secondary btn-xl" href="{{ url_for('analytics') }} " role="button" style="font-size: 19;" >Analytics</a>
+          <a class="btn btn-secondary" id = "basebuttons" href="{{ url_for('analytics') }} " role="button">Analytics</a>
       </div>
       <div class="btn-group">
-        <a class="btn btn-secondary btn-xl" href="{{ url_for('charts') }}" role="button" style="font-size: 19;" >Charts</a>
+        <a class="btn btn-secondary" id = "basebuttons" href="{{ url_for('charts') }}" role="button">Charts</a>
       </div>
       <div class="btn-group">
-        <a class="btn btn-secondary btn-xl" href="{{ url_for('classifier') }}" style="font-size: 19;" >Classifier</a>
+        <a class="btn btn-secondary" id = "basebuttons" href="{{ url_for('classifier') }}" role="button">Classifier</a>
       </div>
-      <div class="btn-group" style = "margin-top: 18px;">
+      <div class="btn-group" id = "searchbasebar">
         {% if g.search_form %}              
-          <form class="navbar-form navbar-left" method="get"
+          <form class="d-flex" method="get"
                   action="{{ url_for('search') }}">
-              <div class="form-group">
+              <div class="form-group"></div>
                   {{ g.search_form.q(size=20, class='form-control',  placeholder=g.search_form.q.label.text) }}
               </div>
           </form>

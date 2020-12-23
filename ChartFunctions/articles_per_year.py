@@ -9,34 +9,40 @@ from settings import DB_CREDS
 from utilities import finalNormalize, readText
 
 #get all the data from the articles table
-sql_command = "SELECT id,article_date FROM articles"
+sql_command = "SELECT id,topic,article_date FROM articles"
 df = readText(sql_command)
-
 df = df.fillna(" ")
+
+#get the unique categories
+categories = df.topic.unique()
+
+#group articles by their date
 culture_articles = df.groupby(['article_date']).nunique()
 
-my_list = []
-my_dict = {}
-for i, row in culture_articles.iterrows():
-    date = str(i.day) + '-' + str(i.month) + '-' + str(i.year)
-    my_dict["date"] = date 
-    my_dict["counter"] = int(row[('id')])
-    my_list.append(my_dict)
+list_of_dicts = []
 
-#s = pd.Series(my_dict, name='DateValue')
-#
-#print(s.to_json('/Users/elenikaranikola/Desktop/NewsBackend/dependencies/articles_per_year.json',orient='index'))   
-with open('/Users/elenikaranikola/Desktop/NewsBackend/dependencies/articles_per_year.csv', 'w') as csv_file:
-    csv_writer = csv.writer(csv_file, delimiter=',')
-    csv_writer.writerow(my_list)
+for i in range (2020,2012,-1):
+    list_of_dicts.append({'year': str(i), 'World': 0, 'Sport': 0, 'Culture': 0, 'Society': 0, 'Economics': 0, 'Environment': 0, 'Politics': 0, 'Tech': 0, 'Food': 0, 'Style': 0})
+
+# thelw ana katigoria na metraw ana xronia ta arthra
+
+list_index = 0
+for i_year in range(2020,2012,-1):
+    for category in categories:
+        counter = 0
+        sql_command = "SELECT article_date FROM articles WHERE topic = '{}'".format(category)
+        df2 = readText(sql_command)
+        df2 = df2.fillna(" ")
+        size = df2.shape[0]
+        for index in range(0,size):
+            article_date = df2.iloc[index]['article_date']
+            if article_date.year == i_year :
+                counter += 1
+        list_of_dicts[list_index][category] = counter
+    
+    list_index += 1
 
 
-#                               !!! WRONG FORM
-#my_dict = {}
-#for i, row in culture_articles.iterrows():
-#    date = str(i.day) + '-' + str(i.month) + '-' + str(i.year)
-#    my_dict[date] = int(row[('id')])
-#
-#s = pd.Series(my_dict, name='DateValue')
-#
-#print(s.to_json('/Users/elenikaranikola/Desktop/NewsBackend/dependencies/articles_per_year.json',orient='index'))   
+with open("/Users/elenikaranikola/Desktop/NewsBackend/dependencies/api_charts/articles_per_year.csv", "w") as write_file:
+    json.dump(list_of_dicts, write_file)
+ 

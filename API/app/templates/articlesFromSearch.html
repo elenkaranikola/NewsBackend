@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<!--a href="{{ url_for(article.topic) }}" class="btn btn-secondary">Back</a><br -->
+<a href="{{ url_for('back_to_search', search = search)}}" class="btn btn-outline-secondary">Back</a><br>
+<header>
+    <h3>{{article.subtopic}}</h3>
+    <p>{{article.article_date}}</p>
+    <h1>{{article.title}}</h1>
+</header>
+<article>
+    <div class = "container">
+        <div class = "article-body">
+        <p>{{article.article_body}}</p>
+        <p>{{article.author}}</p>
+        <a href="{{article.url}}">Open In Website</a><hr>
+        </div>
+        <div class="column-with-similar-articles">
+           
+            <h4>Read Also</h4><hr>
+
+            <div class="card-group">
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Category: {{first_article.subtopic}}</h5>
+                    <p class="card-text">{{first_article.title}}</p>
+                    <a href="{{url_for('articlesFromSearch', id=first_article.id, search=search)}}" class="btn btn-primary">Read More</a>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Category: {{second_article.subtopic}}</h5>
+                    <p class="card-text">{{second_article.title}}</p>
+                    <a href="{{url_for('articlesFromSearch', id=second_article.id, search=search)}}" class="btn btn-primary">Read More</a>
+                  </div>
+                </div>
+                <div class="card">
+                  <div class="card-body">
+                    <h5 class="card-title">Category: {{third_article.subtopic}}</h5>
+                    <p class="card-text">{{third_article.title}}</p>
+                    <a href="{{url_for('articlesFromSearch', id=second_article.id, search=search)}}" class="btn btn-primary">Read More</a>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+        </div>
+    </div>
+</article>
+{% endblock %}

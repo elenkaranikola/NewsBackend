@@ -117,6 +117,14 @@ def charts():
 def articles_available_from_each_year():
     return render_template('charts/articles_available_from_each_year.html')    
 
+@app.route('/beginner_reading')
+def beginner_reading():
+    return render_template('charts/beginner_reading.html')   
+
+@app.route('/categorize_sites')
+def categorize_sites():
+    return render_template('charts/categorize_sites.html')   
+
 @app.route('/analytics')
 def analytics():
     return render_template('notebooks.html')
@@ -166,21 +174,20 @@ def before_request():
     g.search_form = SearchForm()
     g.locale = str(get_locale())
 
-@app.route('/search')
+@app.route('/search',methods=["POST","GET"])
 def search():
     page = request.args.get('page', 1, type=int)
-    
     form_input = g.search_form.q.data
-    category = Classifier(form_input)
-    print(form_input)
-    articles = Articles.query.filter(or_(Articles.article_body.contains(form_input), Articles.topic == category)).paginate(
+    search = '%{}%'.format(form_input)
+
+    articles = Articles.query.filter(Articles.article_body.like(search)).paginate(
         page, app.config['POSTS_PER_PAGE'], False)
+
     next_url = url_for('search', page=articles.next_num) \
         if articles.has_next else None
     prev_url = url_for('search', page=articles.prev_num) \
         if articles.has_prev else None
-
-    return render_template('search.html', title='All Articles',category=category, articles=articles.items, next_url=next_url, prev_url=prev_url)
+    return render_template('search.html', title='All Articles', articles=articles.items, search=form_input, next_url=next_url, prev_url=prev_url)
 
 
 @app.route('/World')
@@ -334,6 +341,17 @@ def article(id):
     return render_template('article.html', article=article, first_article=first_article, second_article=second_article, third_article=third_article)
 
 
+@app.route("/articlesFromSearch/<id>/<search>")
+def articlesFromSearch(id,search):
+    article = Articles.query.filter_by(id=id).first_or_404()
+    similar_articles =  SimilarArticles.query.filter_by(id=id).first()
+    first_article = Articles.query.filter_by(id=similar_articles.first_article).first_or_404()
+    second_article = Articles.query.filter_by(id=similar_articles.second_article).first_or_404()
+    third_article = Articles.query.filter_by(id=similar_articles.third_article).first_or_404()
+    return render_template('articlesFromSearch.html', article=article, first_article=first_article, second_article=second_article, third_article=third_article, search=search)
+
+
+
 @app.route("/results")
 def results():
     return render_template('results.html', title='Search Results', article=article)
@@ -354,3 +372,17 @@ def dated_url_for(endpoint, **values):
 @app.route('/go_back/<string:topic>',methods=['GET'])
 def go_back(topic):
     return redirect(url_for(topic))
+
+@app.route('/back_to_search/<string:search>',methods=['GET','POST'])
+def back_to_search(search):
+    page = request.args.get('page', 1, type=int)
+    my_input = '%{}%'.format(search)
+
+    articles = Articles.query.filter(Articles.article_body.like(my_input)).paginate(
+        page, app.config['POSTS_PER_PAGE'], False)
+
+    next_url = url_for('search', page=articles.next_num) \
+        if articles.has_next else None
+    prev_url = url_for('search', page=articles.prev_num) \
+        if articles.has_prev else None
+    return render_template('search.html', title='All Articles', articles=articles.items, search=search, next_url=next_url, prev_url=prev_url)

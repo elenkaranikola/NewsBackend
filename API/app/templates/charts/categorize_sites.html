@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block container %}8 Websites for beginners{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('charts') }}" class="btn btn-secondary">Back to Charts</a><br>
+<script src="//cdn.amcharts.com/lib/4/core.js"></script>
+<script src="//cdn.amcharts.com/lib/4/charts.js"></script>
+<script src="//cdn.amcharts.com/lib/4/themes/animated.js"></script>
+<script src="//cdn.amcharts.com/lib/4/plugins/forceDirected.js"></script>
+<div id="chartdiv" style="width: 1300px; height: 1000px; margin: auto;">
+<script>
+am4core.useTheme(am4themes_animated);
+
+// Create chart
+var chart = am4core.create("chartdiv", am4plugins_forceDirected.ForceDirectedTree);
+
+// Create series
+var series = chart.series.push(new am4plugins_forceDirected.ForceDirectedSeries())
+
+// Set data
+series.data = [{
+  "name": "Expert",
+  "children": [{
+    "name": "protagon.gr", "value": 218.39730988101397
+  }, {
+    "name": "lifo.gr", "value": 205.51166666666666
+  }, {
+    "name": "kathimerini.gr", "value": 156.50622820129547
+  },{
+    "name": "in.gr", "value": 153.5952380952381
+  }, {
+    "name": "efsyn.gr", "value": 153.16159420289856
+  }]
+}, {
+  "name": "Intermediate",
+  "children": [{
+    "name": "tovima.gr", "value": 143.32670582919116
+  }, {
+    "name": "tanea.gr", "value": 142.82890855457228
+  }, {
+    "name": "topontiki.gr", "value": 136.89951638903815
+  },{
+    "name": "iefimerida.gr", "value": 135.02932551319648
+  }, {
+    "name": "thetoc.gr", "value": 130.04333333333332
+  }, {
+    "name": "newpost.gr", "value": 122.56259720062208
+  },{
+    "name": "periodista.gr", "value": 121.81421864520456
+  }, {
+    "name": "cnn.gr", "value": 120.36895011169024
+  }, {
+    "name": "popaganda.gr", "value": 120.00936123348018
+  }, {
+    "name": "naftemporiki.gr", "value": 117.97040072859745
+  },{
+    "name": "sport24.gr", "value": 107.50746268656717
+  }, {
+    "name": "reader.gr", "value": 103.40627084723148
+  }, {
+    "name": "newsit.gr", "value": 98.39400428265525
+  },{
+    "name": "insomnia.gr", "value": 91.88153310104529
+  }]
+
+}, {
+  "name": "Beginner",
+  "children": [{
+    "name": "gazzetta.gr", "value": 62.60333333333333
+  }]
+}];
+
+// Set up data fields
+series.dataFields.value = "value";
+series.dataFields.name = "name";
+series.dataFields.children = "children";
+
+// Add labels
+series.nodes.template.label.text = "{name}";
+series.fontSize = 15;
+series.minRadius = 50;
+series.maxRadius = 100;
+
+series.centerStrength = 0.5;
+</script>
+</div>
+{% endblock %}

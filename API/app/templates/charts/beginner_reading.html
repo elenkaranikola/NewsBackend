@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block container %}8 Websites for beginners{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('charts') }}" class="btn btn-secondary">Back to Charts</a><br>
+<script src="https://cdn.amcharts.com/lib/4/core.js"></script>
+<script src="https://cdn.amcharts.com/lib/4/charts.js"></script>
+<div id="chartdiv" style="width: 1000px; height: 800px; margin: auto;">
+
+<script>
+// Create chart instance
+var chart = am4core.create("chartdiv", am4charts.PieChart);
+
+// Add data
+chart.data = [{
+    'website': 'gazzetta.gr', 
+    'percentage': 0.8394660995606794
+}, {
+    'website': 'insomnia.gr', 
+    'percentage': 0.8030892352463833
+}, {
+    'website': 'newsit.gr', 
+    'percentage': 5.227075579931164
+}, {
+    'website': 'reader.gr', 
+    'percentage': 4.194532277471528
+}, {
+    'website': 'sport24.gr', 
+    'percentage': 0.7499230489408736
+}, {
+    'website': 'naftemporiki.gr', 
+    'percentage': 6.144891848784173
+}, {
+    'website': 'popaganda.gr', 
+    'percentage': 5.081568122673979
+}, {
+    'website': 'cnn.gr', 
+    'percentage': 7.51601981139995
+}];
+
+// Add and configure Series
+var pieSeries = chart.series.push(new am4charts.PieSeries());
+pieSeries.dataFields.value = "percentage";
+pieSeries.dataFields.category = "website";
+</script>
+</div>
+{% endblock %}
