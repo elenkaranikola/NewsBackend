@@ -6,7 +6,8 @@
 {% for article in articles %}
 <div class="card border-grey mb-3">
 <div class="card-header">
-  <div class="col left">    
+  <div class="col left">
+    <a href="{{url_for('articlesFromSearch', id=article.id, search=search)}}" >  
     {% if article.topic == 'World' %}
     <p><img class = "logo" src="{{url_for('static', filename='img/worldnews.png')}}"/></p>
     {% elif article.topic == 'Culture'%}
@@ -28,19 +29,25 @@
     {% elif article.topic == 'Tech'%}
     <p><img class = "logo" src="{{url_for('static', filename='img/tech2.jpg')}}"/></p>
     {% endif %}
+  </a>  
   </div>
   <div class="col right">
-    <p><h2><i>{{article.subtopic}} News</i></h2></p>
+    <p>
+      <h2>
+        <a href="{{url_for('articlesFromSearch', id=article.id, search=search)}}" class="text-decoration-none">
+          {{article.subtopic}} News
+        </a>
+      </h2>
+    </p>
   </div>
 </div>
 <div class="card-body">
     <div class="row">
         <div class="col-ms-1">
             <p><strong>{{article.title}}</strong></p>
-            <p>{{article.article_body[0:100]}}...</p>     
-            <p><a class="btn btn-primary btn-sm" href="{{url_for('articlesFromSearch', id=article.id, search=search)}}" role="button">READ MORE</a></p>
+            <p>{{article.article_body[0:200]}}...<a href="{{url_for('articlesFromSearch', id=article.id, search=search)}}" >READ MORE</a></p>     
             <p><strong>Author: </strong>{{article.author}}</p>
-            <p><i>{{article.article_date}}</i></p>
+            <p>{{article.article_date}}</p>
         </div>
     </div>
 </div>

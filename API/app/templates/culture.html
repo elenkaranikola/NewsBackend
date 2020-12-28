@@ -10,21 +10,34 @@
   <div class="col left">
     
     {% if article.subtopic == 'Culture' %}
-    <p><img class = "logo" src="/static/img/culture3.png"></p>
+    <p>
+      <a href="{{url_for('article', id=article.id)}}" >
+        <img class = "logo" src="/static/img/culture3.png">
+      </a
+    ></p>
     {% endif %}
   </div>
   <div class="col right">
-    <p><h2><i>{{article.subtopic}} News</i></h2></p>
+    <p>
+      <h2>
+        <a href="{{url_for('article', id=article.id)}}" class="text-decoration-none">
+          {{article.subtopic}} News
+        </a>
+      </h2>
+    </p>
   </div>
 </div>
 <div class="card-body">
     <div class="row">
         <div class="col-ms-1">
             <p><strong>{{article.title}}</strong></p>
-            <p>{{article.article_body[0:100]}}...</p>     
-            <p><a class="btn btn-primary btn-sm" href="{{url_for('article', id=article.id)}}" role="button">READ MORE</a></p>
+            <p>{{article.article_body[0:200]}}... 
+              <a href="{{url_for('article', id=article.id)}}">
+                READ MORE
+              </a>
+            </p>     
             <p><strong>Author: </strong>{{article.author}}</p>
-            <p><i>{{article.article_date}}</i></p>
+            <p>{{article.article_date}}</p>
         </div>
     </div>
 </div>

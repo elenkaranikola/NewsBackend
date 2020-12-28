@@ -125,6 +125,14 @@ def beginner_reading():
 def categorize_sites():
     return render_template('charts/categorize_sites.html')   
 
+@app.route('/articles_size')
+def articles_size():
+    return render_template('charts/articles_size.html')   
+
+@app.route('/countries')
+def countries():
+    return render_template('charts/countries.html')  
+
 @app.route('/analytics')
 def analytics():
     return render_template('notebooks.html')

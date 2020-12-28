@@ -1,0 +1,634 @@
+{% extends "base.html" %}
+
+{% block container %}Map of the discussed countries{% endblock %}
+
+{% block content %}
+<a href="{{ url_for('charts') }}" class="btn btn-secondary">Back to Charts</a><br>
+<script src="https://www.amcharts.com/lib/4/core.js"></script>
+<script src="https://www.amcharts.com/lib/4/maps.js"></script>
+<script src="https://www.amcharts.com/lib/4/geodata/worldLow.js"></script>
+<script src="https://www.amcharts.com/lib/4/geodata/lang/EL.js"></script>
+<div id="chartdiv"  style="width: 900px; height: 800px; margin: auto; margin-top: 0%;" >
+    <script>
+ // Create map instance
+var chart = am4core.create("chartdiv", am4maps.MapChart);
+
+// Set map definition
+chart.geodata = am4geodata_worldLow;
+chart.geodataNames = am4geodata_lang_EL;
+
+// Set projection
+chart.projection = new am4maps.projections.Miller();
+
+// Create map polygon series
+var polygonSeries = chart.series.push(new am4maps.MapPolygonSeries());
+
+// Exclude Antartica
+polygonSeries.exclude = ["AQ"];
+
+// Add some data
+polygonSeries.data = [{
+  "id": "CN",
+  "value": 1028,
+  "fill": am4core.color("#E8CCBF")
+}, {
+  "id": "IN",
+  "value": 345,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "US",
+  "value": 765,
+  "fill": am4core.color("#81968F")
+}, {
+  "id": "ID",
+  "value": 70,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "PK",
+  "value": 69,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "BR",
+  "value": 416,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "NG",
+  "value": 60,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "BD",
+  "value": 25,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "RU",
+  "value": 717,
+  "fill": am4core.color("#81968F")
+}, {
+  "id": "MX",
+  "value": 262,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "JP",
+  "value": 363,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "ET",
+  "value": 42,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "PH",
+  "value": 58,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "EG",
+  "value": 118,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "VN",
+  "value": 103,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "IR",
+  "value": 228,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "TC",
+  "value": 2317,
+  "fill": am4core.color("#E8CCBF")
+}, {
+  "id": "DE",
+  "value": 1427,
+  "fill": am4core.color("#E8CCBF")
+}, {
+  "id": "UK",
+  "value": 428,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "TH",
+  "value": 68,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "FR",
+  "value": 1263,
+  "fill": am4core.color("#E8CCBF")
+}, {
+  "id": "IT",
+  "value": 1389,
+  "fill": am4core.color("#E8CCBF")
+}, {
+  "id": "ZA",
+  "value": 144,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "TZ",
+  "value": 14,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "MM",
+  "value": 11,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "KR",
+  "value": 165,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "CO",
+  "value": 66,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "KE",
+  "value": 53,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "ES",
+  "value": 1051,
+  "fill": am4core.color("#E8CCBF")
+}, {
+  "id": "AR",
+  "value": 112,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "DZ",
+  "value": 54,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "UA",
+  "value": 138,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "UG",
+  "value": 15,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "IQ",
+  "value": 146,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "PL",
+  "value": 252,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "CA",
+  "value": 117,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "MA",
+  "value": 71,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "SA",
+  "value": 104,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "UZ",
+  "value": 27,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "AF",
+  "value": 91,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "MY",
+  "value": 41,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "CA",
+  "value": 117,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "PE",
+  "value": 88,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "AO",
+  "value": 6,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "VE",
+  "value": 61,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "GH",
+  "value": 34,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "MZ",
+  "value": 12,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "NP",
+  "value": 15,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "YE",
+  "value": 29,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "CM",
+  "value": 17,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "CI",
+  "value": 13,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "MG",
+  "value": 29,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "KP",
+  "value": 57,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "AU",
+  "value": 452,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "TW",
+  "value": 64,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "LK",
+  "value": 115,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "RO",
+  "value": 219,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "KZ",
+  "value": 44,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "ZM",
+  "value": 12,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "MW",
+  "value": 8,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "EC",
+  "value": 9,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "SY",
+  "value": 400,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "NL",
+  "value": 483,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "GT",
+  "value": 10,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "KH",
+  "value": 8,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "SN",
+  "value": 24,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "TD",
+  "value": 19,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "SO",
+  "value": 21,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "ZW",
+  "value": 25,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "RW",
+  "value": 28,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "GN",
+  "value": 31,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "GT",
+  "value": 10,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "BG",
+  "value": 6,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "HT",
+  "value": 6,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "TN",
+  "value": 65,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "BO",
+  "value": 44,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "BE",
+  "value": 302,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "CU",
+  "value": 40,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "GZ",
+  "value": 126,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "SE",
+  "value": 526,
+  "fill": am4core.color("#81968F")
+}, {
+  "id": "JO",
+  "value": 29,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "PT",
+  "value": 296,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "AL",
+  "value": 157,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "AZ",
+  "value": 69,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "AE",
+  "value": 135,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "HU",
+  "value": 168,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "BY",
+  "value": 34,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "TZ",
+  "value": 3,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "HN",
+  "value": 3,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "IL",
+  "value": 448,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "AT",
+  "value": 375,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "CH",
+  "value": 254,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "HK",
+  "value": 238,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "LA",
+  "value": 306,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "PY",
+  "value": 16,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "BG",
+  "value": 325,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "RS",
+  "value": 241,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "LB",
+  "value": 24,
+  "fill": am4core.color("#99C78F") 
+}, {
+  "id": "LY",
+  "value": 623,
+  "fill": am4core.color("#81968F")
+}, {
+  "id": "NI",
+  "value": 14,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "DK",
+  "value": 292,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "SG",
+  "value": 88,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "FI",
+  "value": 196,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "SK",
+  "value": 85,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "NO",
+  "value": 166,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "CR",
+  "value": 21,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "IE",
+  "value": 141,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "KW",
+  "value": 30,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "OM",
+  "value": 25,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "PA",
+  "value": 88,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "HR",
+  "value": 132,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "GE",
+  "value": 252,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "UY",
+  "value": 40,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "MN",
+  "value": 11,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "AM",
+  "value": 25,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "LT",
+  "value": 85,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "QA",
+  "value": 108,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "JM",
+  "value": 26,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "MD",
+  "value": 23,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "BW",
+  "value": 20,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "SI",
+  "value": 92,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "MK",
+  "value": 96,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "LV",
+  "value": 49,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "EE",
+  "value": 76,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "FJ",
+  "value": 16,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "CY",
+  "value": 313,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "MO",
+  "value": 32,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "LU",
+  "value": 107,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "ME",
+  "value": 77,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "MT",
+  "value": 73,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "BS",
+  "value": 23,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "IS",
+  "value": 60,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "FJ",
+  "value": 16,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "CY",
+  "value": 313,
+  "fill": am4core.color("#96BDC6")
+}, {
+  "id": "SC",
+  "value": 12,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "GL",
+  "value": 64,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "MC",
+  "value": 90,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "VA",
+  "value": 32,
+  "fill": am4core.color("#99C78F")
+}, {
+  "id": "TR",
+  "value": 2317,
+  "fill": am4core.color("#E8CCBF")
+}];
+
+
+// Make map load polygon (like country names) data from GeoJSON
+polygonSeries.useGeodata = true;
+
+// Configure series
+var polygonTemplate = polygonSeries.mapPolygons.template;
+polygonTemplate.tooltipText = "{name}: {value}";
+polygonTemplate.fill = am4core.color("#74B266");
+
+// Create hover state and set alternative fill color
+var hs = polygonTemplate.states.create("hover");
+hs.properties.fill = am4core.color("#367B25");
+
+polygonTemplate.propertyFields.fill = "fill";
+
+/* Add legend */
+var legend = new am4maps.Legend();
+legend.parent = chart.chartContainer;
+legend.background.fill = am4core.color("#000");
+legend.background.fillOpacity = 0.05;
+legend.width = 270;
+legend.valign = "bottom";
+legend.padding(10, 15, 10, 15);
+legend.data = [{
+  "name": "1000<ref",
+  "fill":"#E8CCBF"
+}, {
+  "name": "500<ref<1000",
+  "fill": "#81968F"
+}, {
+  "name": "100<ref<500",
+  "fill": "#96BDC6"
+}, {
+  "name": "ref<100",
+  "fill": "#99C78F"
+}, {
+  "name": "ref~0",
+  "fill": "#5aa673"
+}]; 
+legend.itemContainers.template.clickable = false;
+legend.itemContainers.template.focusable = false;
+
+var legendTitle = legend.createChild(am4core.Label);
+legendTitle.text = "Number of countries references:";
+    </script>
+</div>
+{% endblock %}

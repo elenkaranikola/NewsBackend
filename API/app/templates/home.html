@@ -5,7 +5,7 @@ All Articles
 {% endblock %}
 {% block about %}
 <div style="padding-top: 2cm; padding-bottom: 2cm; align-content: center;">
-  <h2 style="text-align: center;"><i>About:</i></h2>
+  <h2 style="text-align: center;">About:</h2>
     <p class = "about-body">This is smart website for newsreports. We collected 35.000 greek articles from the web and and give your the opportunity to browse through them based on their category their date etc,
     see analytics about their quality, difficulty and subject. Based on the article you choose to read we suggest to you three similar articles from our database to keep reading.
     Finaly we provide a classificator that given an article as input it categorises it in one of our ten categories.
@@ -32,7 +32,8 @@ All Articles
 {% for article in articles %}
 <div class="card border-grey mb-3">
 <div class="card-header">
-  <div class="col left">    
+  <div class="col left">  
+    <a href="{{url_for('article', id=article.id)}}" class="text-decoration-none">
     {% if article.topic == 'World' %}
     <p><img class = "logo" src="{{url_for('static', filename='img/worldnews.png')}}"/></p>
     {% elif article.topic == 'Culture'%}
@@ -54,17 +55,27 @@ All Articles
     {% elif article.topic == 'Tech'%}
     <p><img class = "logo" src="{{url_for('static', filename='img/tech2.jpg')}}"/></p>
     {% endif %}
+  </a>  
   </div>
   <div class="col right">
-    <p><h2 style="font-family: 'Crimson Pro', serif; font-size: 48px;">{{article.topic}} News</h2></p>
+    <p>
+      <h2 style="font-family: 'Crimson Pro', serif; font-size: 48px;">
+        <a href="{{url_for('article', id=article.id)}}" class="text-decoration-none">
+          {{article.topic}} News
+        </a>
+      </h2>
+    </p>
   </div>
 </div>
 <div class="card-body">
   <p><strong>{{article.title}}</strong></p>
-  <p>{{article.article_body[0:100]}}...</p>     
-  <p><a class="btn btn-primary btn-sm" href="{{url_for('article', id=article.id)}}" role="button">READ MORE</a></p>
+  <p>{{article.article_body[0:200]}}...
+    <a href="{{url_for('article', id=article.id)}}">
+      READ MORE
+    </a>
+  </p>     
   <p><strong>Author: </strong>{{article.author}}</p>
-  <p><i>{{article.article_date}}</i></p>
+  <p>{{article.article_date}}</p>
 </div>
 </div>
 {% endfor %}

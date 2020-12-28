@@ -17,47 +17,57 @@
 </div>
 
 {% for article in articles %}
-<div class="ccard border-grey mb-3">
-<div class="card-header">
-  <div class="col left">
-    
-    {% if article.topic == 'World' %}
-    <p><img class = "logo" src="{{url_for('static', filename='img/worldnews.png')}}"/></p>
-    {% elif article.topic == 'Culture'%}
-    <p><img class = "logo" src="{{url_for('static', filename='img/culture3.png')}}"/></p>
-    {% elif article.topic == 'Economics'%}
-    <p><img class = "logo" src="{{url_for('static', filename='img/economics.jpg')}}"/></p>
-    {% elif article.topic == 'Environment'%}
-    <p><img class = "logo" src="{{url_for('static', filename='img/env.jpg')}}"/></p>
-    {% elif article.topic == 'Food'%}
-    <p><img class = "logo" src="{{url_for('static', filename='img/food.jpg')}}"/></p>
-    {% elif article.topic == 'Politics'%}
-    <p><img class = "logo" src="{{url_for('static', filename='img/politics2.jpg')}}"/></p>
-    {% elif article.topic == 'Society'%}
-    <p><img class = "logo" src="{{url_for('static', filename='img/society.jpg')}}"/></p>
-    {% elif article.topic == 'Sport'%}
-    <p><img class = "logo" src="{{url_for('static', filename='img/sport.jpg')}}"/></p>
-    {% elif article.topic == 'Style'%}
-    <p><img class = "logo" src="{{url_for('static', filename='img/style.jpg')}}"/></p>
-    {% elif article.topic == 'Tech'%}
-    <p><img class = "logo" src="{{url_for('static', filename='img/tech2.jpg')}}"/></p>
-    {% endif %}
-  </div>
-  <div class="col right">
-    <p><h2><i>{{article.topic}} News</i></h2></p>
-  </div>
-</div>
-<div class="card-body">
-    <div class="row">
-        <div class="col-ms-1">
-            <p><strong>{{article.title}}</strong></p>
-            <p>{{article.article_body[0:100]}}...</p>     
-            <p><a class="btn btn-primary btn-sm" href="{{url_for('article', id=article.id)}}" role="button">READ MORE</a></p>
-            <p><strong>Author: </strong>{{article.author}}</p>
-            <p><i>{{article.article_date}}</i></p>
-        </div>
+<div class="card border-grey mb-3">
+  <div class="card-header">
+    <div class="col left">
+      <a href="{{url_for('article', id=article.id)}}" >
+      {% if article.topic == 'World' %}
+      <p><img class = "logo" src="{{url_for('static', filename='img/worldnews.png')}}"/></p>
+      {% elif article.topic == 'Culture'%}
+      <p><img class = "logo" src="{{url_for('static', filename='img/culture3.png')}}"/></p>
+      {% elif article.topic == 'Economics'%}
+      <p><img class = "logo" src="{{url_for('static', filename='img/economics.jpg')}}"/></p>
+      {% elif article.topic == 'Environment'%}
+      <p><img class = "logo" src="{{url_for('static', filename='img/env.jpg')}}"/></p>
+      {% elif article.topic == 'Food'%}
+      <p><img class = "logo" src="{{url_for('static', filename='img/food.jpg')}}"/></p>
+      {% elif article.topic == 'Politics'%}
+      <p><img class = "logo" src="{{url_for('static', filename='img/politics2.jpg')}}"/></p>
+      {% elif article.topic == 'Society'%}
+      <p><img class = "logo" src="{{url_for('static', filename='img/society.jpg')}}"/></p>
+      {% elif article.topic == 'Sport'%}
+      <p><img class = "logo" src="{{url_for('static', filename='img/sport.jpg')}}"/></p>
+      {% elif article.topic == 'Style'%}
+      <p><img class = "logo" src="{{url_for('static', filename='img/style.jpg')}}"/></p>
+      {% elif article.topic == 'Tech'%}
+      <p><img class = "logo" src="{{url_for('static', filename='img/tech2.jpg')}}"/></p>
+      {% endif %}
+    </a>
     </div>
-</div>
-</div>
+    <div class="col right">
+      <p>
+        <h2>
+          <a href="{{url_for('article', id=article.id)}}" class="text-decoration-none">
+            {{article.topic}} News
+          </a>
+        </h2>
+      </p>
+    </div>
+  </div>
+  <div class="card-body">
+      <div class="row">
+          <div class="col-ms-1">
+              <p><strong>{{article.title}}</strong></p>
+              <p>{{article.article_body[0:200]}}...   
+                <a href="{{url_for('article', id=article.id)}}" >
+                  READ MORE
+                </a>
+              </p>     
+              <p><strong>Author: </strong>{{article.author}}</p>
+              <p>{{article.article_date}}</p>
+          </div>
+      </div>
+  </div>
+  </div>
 {% endfor %}
 {% endblock %}

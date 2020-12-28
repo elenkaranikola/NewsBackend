@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% block content %}
 <!--a href="{{ url_for(article.topic) }}" class="btn btn-secondary">Back</a><br -->
-<a href="{{ url_for('go_back',topic = article.topic)}}" class="btn btn-outline-secondary">Back</a><br>
+<a href="{{ url_for('go_back',topic = article.topic)}}" class="btn btn-secondary">Back</a><br>
 <header>
     <h3>{{article.subtopic}}</h3>
     <p>{{article.article_date}}</p>

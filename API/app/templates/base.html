@@ -40,7 +40,7 @@
         </div>
       </div>
       <div class="btn-group">
-          <a class="btn btn-secondary" id = "basebuttons" href="{{ url_for('analytics') }} " role="button">Analytics</a>
+          <a class="btn btn-secondary" id = "basebuttons" href="{{ url_for('analytics') }} " role="button">Notebooks</a>
       </div>
       <div class="btn-group">
         <a class="btn btn-secondary" id = "basebuttons" href="{{ url_for('charts') }}" role="button">Charts</a>
@@ -49,13 +49,13 @@
         <a class="btn btn-secondary" id = "basebuttons" href="{{ url_for('classifier') }}" role="button">Classifier</a>
       </div>
       <div class="btn-group" id = "searchbasebar">
-        {% if g.search_form %}              
-          <form class="d-flex" method="get"
-                  action="{{ url_for('search') }}">
-              <div class="form-group"></div>
-                  {{ g.search_form.q(size=20, class='form-control',  placeholder=g.search_form.q.label.text) }}
-              </div>
+        {% if g.search_form %}            
+          <form class="d-flex" method="get" action="{{ url_for('search') }}">
+              {{ g.search_form.q(size=20, class='form-control',  placeholder=g.search_form.q.label.text) }}
           </form>
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16" >
+            <path class="searchicon" d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+          </svg>  
         {% endif %}
       </div>
 
@@ -131,10 +131,10 @@
                   <nav aria-label="Page navigation example">
                     <ul class="pagination pagination-lg">
                       {% if prev_url %}
-                      <a href="{{ prev_url }}" class="btn btn-outline-secondary">Previous</a>
+                      <a href="{{ prev_url }}" class="btn btn-secondary">Previous</a>
                       {% endif %}
                       {% if next_url %}
-                      <a id = "next_button" href="{{ next_url }}" class="btn btn-outline-secondary">Next</a>
+                      <a id = "next_button" href="{{ next_url }}" class="btn btn-secondary">Next</a>
                       {% endif %}
                     </ul>
                   </nav>
@@ -149,6 +149,9 @@
 
     </body>
   <footer>
-      <p>Footer</p>
+      <p>THESIS PROJECT</p>
+      <p>Created by: Eleni Karanikola</p>
+      <p>National and Technical University of Athens</p>
+      <p>Date: 2020</p>
   </footer>
 </html>

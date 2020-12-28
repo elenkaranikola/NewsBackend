@@ -61,5 +61,5 @@ for i in sort_websites:
 print(list_of_dicts)
 
 
-#with open("/Users/elenikaranikola/Desktop/NewsBackend/dependencies/api_charts/beginner_reading.csv", "w") as write_file:
-#    json.dump(list_of_dicts[0:8], write_file)
+with open("/Users/elenikaranikola/Desktop/NewsBackend/dependencies/api_charts/beginner_reading.csv", "w") as write_file:
+    json.dump(list_of_dicts[0:8], write_file)

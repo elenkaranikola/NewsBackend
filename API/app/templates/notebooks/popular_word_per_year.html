@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block notebooks %}
-<a href="{{ url_for('analytics') }}" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Back</a><br>
+<a href="{{ url_for('analytics') }}" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true" style="margin-left: 4px">Back</a><br>
 <div class = "notebook">
     <f:entry>
         <iframe width = "100%" height="100%" src="http://localhost:8888/notebooks/popular_word_per_year.ipynb"></iframe>

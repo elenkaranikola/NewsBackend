@@ -6,51 +6,46 @@
 <div class = "container-xl">
     <div class="column">     
         <div class="card-group">
-            <div class="card">
+            <div class="card" id="chart-card">
               <div class="card-body">
-                <h2 class="card-title">Articles Available From Each Year</h2>
-                <a href="{{ url_for('articles_available_from_each_year') }}" class="btn btn-primary">Show</a>
+                <h2 class="card-title"><a href="{{ url_for('articles_available_from_each_year') }}" class="text-decoration-none">Articles Available From Each Year</a></h2>
                 <hr>
-                <p><img id = "charts" src="{{url_for('static', filename='img/articles_count.png')}}"/></p>
+                <p><a href="{{ url_for('articles_available_from_each_year') }}"><img id = "charts" src="{{url_for('static', filename='img/articles_count.png')}}"/></a></p>
               </div>
             </div>
-            <div class="card">
+            <div class="card" id="chart-card">
               <div class="card-body">
-                <h2 class="card-title">8 Sites For Beginners Reading</h2>
-                <a href="{{ url_for('beginner_reading') }}" class="btn btn-primary">Show</a>
+                <h2 class="card-title"><a href="{{ url_for('beginner_reading') }}" class="text-decoration-none">8 Sites For Beginners Reading</a></h2>
                 <hr>
-                <p><img id = "charts" src="{{url_for('static', filename='img/beginner_reading.png')}}"/></p>
+                <p><a href="{{ url_for('beginner_reading') }}"><img id = "charts" src="{{url_for('static', filename='img/beginner_reading.png')}}"/></a></p>
               </div>
             </div>
-            <div class="card">
+            <div class="card" id="chart-card">
               <div class="card-body">
-                <h2 class="card-title">Categorize Sites</h2>
-                <a href="{{ url_for('categorize_sites') }}" class="btn btn-primary">Show</a>
+                <h2 class="card-title"><a href="{{ url_for('categorize_sites') }}" class="text-decoration-none">Categorize Sites</a></h2>
                 <hr>
-                <p><img id = "charts" src="{{url_for('static', filename='img/categorize_sites.png')}}"/></p>
+                <p><a href="{{ url_for('categorize_sites') }}"><img id = "charts" src="{{url_for('static', filename='img/categorize_sites.png')}}"/></a></p>
               </div>
             </div>
           </div>
     </div>
     <div class="column">     
         <div class="card-group">
-            <div class="card">
+            <div class="card" id="chart-card">
               <div class="card-body">
-                <h2 class="card-title">Analysis Of Available Articles Size</h2>
-                <a href="#" class="btn btn-primary">Show</a>
+                <h2 class="card-title"><a href="{{ url_for('articles_size') }}" class="text-decoration-none">Analysis Of Available Articles Size</a></h2>
                 <hr>
-                <p><img id = "charts" src="#"/></p>
+                <p><a href="{{ url_for('articles_size') }}"><img id = "charts" src="{{url_for('static', filename='img/articles_size.png')}}"/></a></p>
               </div>
             </div>
-            <div class="card">
+            <div class="card" id="chart-card">
               <div class="card-body">
-                <h2 class="card-title">Map of the Countries Discussed</h2>
-                <a href="#" class="btn btn-primary">Show</a>
+                <h2 class="card-title"><a href="{{ url_for('countries') }}" class="text-decoration-none">Map of the Countries Discussed</a></h2>
                 <hr>
-                <p><img id = "charts" src="#"/></p>
+                <p><a href="{{ url_for('countries') }}"><img id = "charts" src="{{url_for('static', filename='img/countries.png')}}"/></a></p>
               </div>
             </div>
-            <div class="card">
+            <div class="card" id="chart-card">
               <div class="card-body">
                 <h2 class="card-title">Sites Analysis</h2>
                 <a href="#" class="btn btn-primary">Show</a>
