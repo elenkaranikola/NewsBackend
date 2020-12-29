@@ -33,7 +33,7 @@ h1 {
   color: #17185e;; 
   margin-top: 60px;
   font-family: 'Times New Roman', serif; 
-  font-size: 80px; 
+  font-size: 50px; 
   font-weight: bold; 
   letter-spacing: -1px; 
   line-height: 1; 
@@ -144,7 +144,6 @@ body {
 footer {
   background-color: #717A82;
   padding: 10px;
-  text-align: center;
   color: white;
   -moz-border-radius: 30px;
   -webkit-border-radius: 30px;
@@ -156,7 +155,6 @@ header {
   margin-top: 0px;
   background-color: #C3D1DE; /*#6B7883;  /*606B75;*/
   padding: 30px;
-  text-align: center;
   font-size: 35px;
   color: white;
   margin-bottom: 4px;
@@ -257,6 +255,26 @@ ___________________________________________________STYLES FOR OUR ARTICLE.HTML P
 ______________________________________________________________________________________________________________________________________________
 */
 
+#article_info{
+  margin-top: -8%;
+  background-color: #17185e;  
+  border-radius: 20%;
+  font-size: 20; 
+  height: 130;
+  width: 12%;
+}
+
+p.category{
+  padding: 2;
+  margin-top: 15%;
+  margin-left: 10%;
+}
+p.date{
+  padding: 2;
+  margin-top: -2%;
+  margin-left: 10%;
+}
+
 .article-body{
   font-family: 'Crimson Pro', serif;
   font-size: 20px;
@@ -287,6 +305,8 @@ ________________________________________________________________________________
 */
 #card-notebooks{
   height: 40%;
+  border-radius: 10%; 
+  margin: 4px;
 }
 
 #notebooks {
@@ -312,15 +332,18 @@ ________________________________________________________________________________
 #charts {
   border-radius: 20%;
   max-width: 85%;
-  margin-top: 50%;
+  margin-top: 40%;
   vertical-align: middle;
   position: relative; 
   transform: translate(-50%, -50%); 
   left: 50%; 
 }
 
-#chart-card{
-  height: 45%;
+
+#card-charts{
+  height: 40%;
+  border-radius: 10%; 
+  margin: 4px;
 }
 
 /*

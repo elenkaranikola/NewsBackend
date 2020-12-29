@@ -47,8 +47,6 @@ list_of_dicts = []
 for i in sorted_len:
     list_of_dicts.append(dict([("name",i[0]),("value",i[1])]))
 
-#with open("/Users/elenikaranikola/Desktop/NewsBackend/dependencies/api_charts/countries.csv", "w", encoding='utf-8') as write_file:
-#    json.dump(list_of_dicts, write_file)
 
 with open('/Users/elenikaranikola/Desktop/NewsBackend/dependencies/api_charts/countries.csv', 'w', encoding='utf-8') as csv_file:
     writer = csv.writer(csv_file)

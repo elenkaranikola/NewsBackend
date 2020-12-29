@@ -131,7 +131,11 @@ def articles_size():
 
 @app.route('/countries')
 def countries():
-    return render_template('charts/countries.html')  
+    return render_template('charts/countries.html') 
+
+@app.route('/sites_analysis')
+def sites_analysis():
+    return render_template('charts/sites_analysis.html')   
 
 @app.route('/analytics')
 def analytics():

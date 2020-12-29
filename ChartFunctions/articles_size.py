@@ -8,16 +8,6 @@ sys.path.insert(1, '/Users/elenikaranikola/Desktop/NewsBackend')
 from settings import DB_CREDS
 from utilities import finalNormalize, readText, finalNormalizeFullPath
 
-#tha paw se ena ena ta artha
-#metraw to megethos 
-#tha kataskeuasw dict me key to megethos kai value to plhthos twn arhtrwn
-#bhmata
-# 1     metra to megethos tou arthrou
-# yparxei key me ayto to megethos?
-# an nai ayxhse to value kata ena
-# an oxi ftiaxe neo key:value pair
-# tha emfanisw ta 10 megalutera megeth
-
 #get all the data from the articles table
 sql_command = "SELECT article_body FROM articles"
 df = readText(sql_command)

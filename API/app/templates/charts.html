@@ -6,21 +6,21 @@
 <div class = "container-xl">
     <div class="column">     
         <div class="card-group">
-            <div class="card" id="chart-card">
+            <div class="card" id="card-charts">
               <div class="card-body">
                 <h2 class="card-title"><a href="{{ url_for('articles_available_from_each_year') }}" class="text-decoration-none">Articles Available From Each Year</a></h2>
                 <hr>
                 <p><a href="{{ url_for('articles_available_from_each_year') }}"><img id = "charts" src="{{url_for('static', filename='img/articles_count.png')}}"/></a></p>
               </div>
             </div>
-            <div class="card" id="chart-card">
+            <div class="card" id="card-charts">
               <div class="card-body">
                 <h2 class="card-title"><a href="{{ url_for('beginner_reading') }}" class="text-decoration-none">8 Sites For Beginners Reading</a></h2>
                 <hr>
                 <p><a href="{{ url_for('beginner_reading') }}"><img id = "charts" src="{{url_for('static', filename='img/beginner_reading.png')}}"/></a></p>
               </div>
             </div>
-            <div class="card" id="chart-card">
+            <div class="card" id="card-charts">
               <div class="card-body">
                 <h2 class="card-title"><a href="{{ url_for('categorize_sites') }}" class="text-decoration-none">Categorize Sites</a></h2>
                 <hr>
@@ -31,26 +31,25 @@
     </div>
     <div class="column">     
         <div class="card-group">
-            <div class="card" id="chart-card">
+            <div class="card" id="card-charts">
               <div class="card-body">
                 <h2 class="card-title"><a href="{{ url_for('articles_size') }}" class="text-decoration-none">Analysis Of Available Articles Size</a></h2>
                 <hr>
                 <p><a href="{{ url_for('articles_size') }}"><img id = "charts" src="{{url_for('static', filename='img/articles_size.png')}}"/></a></p>
               </div>
             </div>
-            <div class="card" id="chart-card">
+            <div class="card" id="card-charts">
               <div class="card-body">
                 <h2 class="card-title"><a href="{{ url_for('countries') }}" class="text-decoration-none">Map of the Countries Discussed</a></h2>
                 <hr>
                 <p><a href="{{ url_for('countries') }}"><img id = "charts" src="{{url_for('static', filename='img/countries.png')}}"/></a></p>
               </div>
             </div>
-            <div class="card" id="chart-card">
+            <div class="card" id="card-charts">
               <div class="card-body">
-                <h2 class="card-title">Sites Analysis</h2>
-                <a href="#" class="btn btn-primary">Show</a>
+                <h2 class="card-title"><a href="{{ url_for('sites_analysis') }}" class="text-decoration-none">Sites Analysis</a></h2>
                 <hr>
-                <p><img id = "charts" src="#"/></p>
+                <p><a href="{{ url_for('sites_analysis') }}"><img id = "charts" src="{{url_for('static', filename='img/sites_analytics.png')}}"/></a></p>
               </div>
             </div>
           </div>
