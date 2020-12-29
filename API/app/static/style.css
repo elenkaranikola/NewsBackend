@@ -2,6 +2,8 @@
 .text-decoration-none:hover {
   color: #3388ff;
 }
+
+
 .text-decoration-none{
   color: black;
 }
@@ -28,7 +30,7 @@ ________________________________________________________________________________
 */
 
 h1 { 
-  color: #1E4F80; 
+  color: #17185e;; 
   margin-top: 60px;
   font-family: 'Times New Roman', serif; 
   font-size: 80px; 
@@ -83,24 +85,24 @@ ________________________________________________________________________________
 
 /*
 ___________________________________________________________________________________________________________________________________________
-_____________________________________________________________________STYLES FOR OUR CARDS__________________________________________________
+________________________________________________STYLES FOR OUR CARDS_______________________________________________________________________
 WE HAVE STYLES FOR THE CONTAINER, CARDS, LEFT AND RIGHT COLUMN OF THE CARDS
 ____________________________________________________________________________________________________________________________________________
 */
 .card{
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px; /* future proofing */
-  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px; /* future proofing */
+  -khtml-border-radius: 30px; /* for old Konqueror browsers */
 }
 
 .card-body{
   font-family: 'Crimson Pro', serif;
   font-size: 20px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px; /* future proofing */
-  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px; /* future proofing */
+  -khtml-border-radius: 30px; /* for old Konqueror browsers */
 }
 
 .center {
@@ -123,7 +125,7 @@ width: 70%;
 }
 /*
 _______________________________________________________________________________________________________________________________________
-_____________________________________________________________________STYLE FOR OUR BASE.HTML____________________________________________
+_____________________________________________STYLE FOR OUR BASE.HTML___________________________________________________________________
 WE HAVE STYLE FOR THE BACKROUND THAT APPLIES TO ALL HTML PAGES
 ________________________________________________________________________________________________________________________________________
 */
@@ -144,10 +146,10 @@ footer {
   padding: 10px;
   text-align: center;
   color: white;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px; /* future proofing */
-  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px; /* future proofing */
+  -khtml-border-radius: 30px; /* for old Konqueror browsers */
 }
 
 header {
@@ -157,7 +159,14 @@ header {
   text-align: center;
   font-size: 35px;
   color: white;
+  margin-bottom: 4px;
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px; /* future proofing */
+  -khtml-border-radius: 30px; /* for old Konqueror browsers */
  }
+
+
 
 #navbarSupportedContent{
   font-family: 'Crimson Pro', serif;
@@ -170,15 +179,15 @@ header {
 }
 
 .container-lg{
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px; /* future proofing */
-  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px; /* future proofing */
+  -khtml-border-radius: 30px; /* for old Konqueror browsers */
 }
 
 /*
 _________________________________________________________________________________________________________________________________________
-___________________________________________________________________STYLE FOR OUR BUTTONS_________________________________________________
+________________________________________________________STYLE FOR OUR BUTTONS_________________________________________________
 WE HAVE STYLE FOR FOR OUT NAVBAR, SEARCH, PAGE BUTTONS
 __________________________________________________________________________________________________________________________________________
 */
@@ -264,10 +273,10 @@ ________________________________________________________________________________
 .form {
   margin-top: 10px;
   margin-bottom: 4px;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
-  border-radius: 10px; /* future proofing */
-  -khtml-border-radius: 10px; /* for old Konqueror browsers */
+  -moz-border-radius: 30px;
+  -webkit-border-radius: 30px;
+  border-radius: 30px; /* future proofing */
+  -khtml-border-radius: 30px; /* for old Konqueror browsers */
 }
 
 
