@@ -4,7 +4,7 @@
 <a href="{{ url_for('go_back',topic = article.topic)}}" class="btn btn-secondary">Back</a><br>
 <header>
   <div class="position-relative">
-    <h1>{{article.title}}</h1>
+    <h2>{{article.title}}</h2>
     <div class="position-absolute top-0 start-100 translate-middle" id="article_info">
       <p class = "category"><a href="{{ url_for('go_back',topic = article.topic)}}" class=" text-decoration-none stretched-link"></a>{{article.subtopic}}</a></p>
       <p class ="date" >{{article.article_date}}</p>   
@@ -21,26 +21,35 @@
            
             <h4>Read Also</h4><hr>
 
-            <div class="card-group" style="height: 25%; text-align: center;">
-                <div class="card text-white" style="background-color: #17185e;  border-radius: 20%; margin: 4px;">
+            <div class="card-group" id="card-group-sug-style">
+                <div class="card text-white" id="suggestions-card-style">
                   <div class="card-body" >
-                    <h5 class="card-title">Category: {{first_article.subtopic}}</h5>
+                    <h5 class="card-title">
+                      <a href="{{url_for('article', id=first_article.id)}}" class="text-decoration-none stretched-link" id="suggestions">
+                        Category: {{first_article.subtopic}}
+                      </a>
+                    </h5>
                     <p class="card-text">{{first_article.title}}</p>
-                    <a href="{{url_for('article', id=first_article.id)}}" class="btn btn-secondary stretched-link">Read More</a>
                   </div>
                 </div>
-                <div class="card text-white" style="background-color: #17185e; border-radius: 20%; margin: 4px;">
+                <div class="card text-white" id="suggestions-card-style">
                   <div class="card-body" >
-                    <h5 class="card-title">Category: {{second_article.subtopic}}</h5>
+                    <h5 class="card-title">
+                      <a href="{{url_for('article', id=second_article.id)}}" class="text-decoration-none stretched-link" id="suggestions">
+                        Category: {{second_article.subtopic}}
+                      </a>
+                    </h5>
                     <p class="card-text">{{second_article.title}}</p>
-                    <a href="{{url_for('article', id=second_article.id)}}" class="btn btn-secondary stretched-link">Read More</a>
                   </div>
                 </div>
-                <div class="card text-white" style="background-color: #17185e; border-radius: 20%; margin: 4px;">
+                <div class="card text-white" id="suggestions-card-style">
                   <div class="card-body" >
-                    <h5 class="card-title">Category: {{third_article.subtopic}}</h5>
+                    <h5 class="card-title">
+                      <a href="{{url_for('article', id=second_article.id)}}" class="text-decoration-none stretched-link" id="suggestions">
+                        Category: {{third_article.subtopic}}
+                      </a>
+                    </h5>
                     <p class="card-text">{{third_article.title}}</p>
-                    <a href="{{url_for('article', id=second_article.id)}}" class="btn btn-secondary stretched-link">Read More</a>
                   </div>
                 </div>
               </div>

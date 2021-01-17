@@ -40,7 +40,7 @@ def classifier():
         category = Classifier(form.index.data)
         articles = Articles.query.filter_by(topic=category).limit(10)
         #article = SimilarArticles.query.filter_by(id=form.index.data).first()
-        return render_template('results.html', title='Search Results', category=category, text=text[0:100], articles = articles)
+        return render_template('results.html', title='Search Results', category=category, text=text, articles = articles)
     return render_template('classifier.html', title='Search Article', form=form)
 
 

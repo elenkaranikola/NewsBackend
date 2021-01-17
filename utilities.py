@@ -176,10 +176,10 @@ def MainTester(all_categories):
 #def that returns the prediction
 def Predictor(my_input,all_categories):
     max = 0
-    sum = 0
     final_category = ' '
     input_to_tokens = set(my_input)
     for category in all_categories:
+        sum = 0
         for i in input_to_tokens:
             if i in all_categories[category]:
                 sum += all_categories[category][i]

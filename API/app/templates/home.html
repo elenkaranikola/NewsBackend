@@ -1,16 +1,18 @@
 {% extends "base.html" %}
 
 {% block container %}
-All Articles
+Informatik
 {% endblock %}
 {% block about %}
 <div style="padding-top: 2cm; padding-bottom: 2cm; align-content: center;">
-  <h2 style="text-align: center;">About:</h2>
-    <p class = "about-body">This is smart website for newsreports. We collected 35.000 greek articles from the web and and give your the opportunity to browse through them based on their category their date etc,
-    see analytics about their quality, difficulty and subject. Based on the article you choose to read we suggest to you three similar articles from our database to keep reading.
-    Finaly we provide a classificator that given an article as input it categorises it in one of our ten categories.
+  <h4 style="text-align: center;">Quick & Accurate</h4>
+  <h2 style="text-align: center;">Stay informed the smart way</h2>
+    <p class = "about-body">This is smart website for newsreports. With a collection of 35.000 greek articles from the web, we provide the opportunity to see analytics 
+    about their quality, difficulty, subject and to browse through them based on their category, their date etc.
+    Furthermore depending on the article you chose to read we suggest to you three similar articles from our database to keep reading.
+    Finaly we provide a classifier that given an article as input it categorises it in one of our ten categories.
     </p>
-  <h5 style="text-align: center;">Happy Reading</h5>
+  <h5 style="text-align: center;">Enjoy Reading</h5>
 </div>
 {% endblock %}
 
@@ -35,35 +37,35 @@ All Articles
   <div class="col left">  
     <a href="{{url_for('article', id=article.id)}}" class="text-decoration-none">
     {% if article.topic == 'World' %}
-    <p><img class = "logo" src="{{url_for('static', filename='img/worldnews.png')}}"/></p>
+    <p><img class = "logo-2" src="{{url_for('static', filename='img/worldwide.svg')}}"/></p>
     {% elif article.topic == 'Culture'%}
-    <p><img class = "logo" src="{{url_for('static', filename='img/culture3.png')}}"/></p>
+    <p><img class = "logo-2" src="{{url_for('static', filename='img/theatre.svg')}}"/></p>
     {% elif article.topic == 'Economics'%}
-    <p><img class = "logo" src="{{url_for('static', filename='img/economics.jpg')}}"/></p>
+    <p><img class = "logo-2" src="{{url_for('static', filename='img/economic.svg')}}"/></p>
     {% elif article.topic == 'Environment'%}
-    <p><img class = "logo" src="{{url_for('static', filename='img/env.jpg')}}"/></p>
+    <p><img class = "logo-2" src="{{url_for('static', filename='img/save-the-planet.svg')}}"/></p>
     {% elif article.topic == 'Food'%}
-    <p><img class = "logo" src="{{url_for('static', filename='img/food.jpg')}}"/></p>
+    <p><img class = "logo-2" src="{{url_for('static', filename='img/diet.svg')}}"/></p>
     {% elif article.topic == 'Politics'%}
-    <p><img class = "logo" src="{{url_for('static', filename='img/politics2.jpg')}}"/></p>
+    <p><img class = "logo-2" src="{{url_for('static', filename='img/speech.svg')}}"/></p>
     {% elif article.topic == 'Society'%}
-    <p><img class = "logo" src="{{url_for('static', filename='img/society.jpg')}}"/></p>
+    <p><img class = "logo-2" src="{{url_for('static', filename='img/sociology.svg')}}"/></p>
     {% elif article.topic == 'Sport'%}
-    <p><img class = "logo" src="{{url_for('static', filename='img/sport.jpg')}}"/></p>
+    <p><img class = "logo-2" src="{{url_for('static', filename='img/sports.svg')}}"/></p>
     {% elif article.topic == 'Style'%}
-    <p><img class = "logo" src="{{url_for('static', filename='img/style.jpg')}}"/></p>
+    <p><img class = "logo-2" src="{{url_for('static', filename='img/love.svg')}}"/></p>
     {% elif article.topic == 'Tech'%}
-    <p><img class = "logo" src="{{url_for('static', filename='img/tech2.jpg')}}"/></p>
+    <p><img class = "logo-2" src="{{url_for('static', filename='img/tech-support.svg')}}"/></p>
     {% endif %}
   </a>  
   </div>
   <div class="col right">
     <p>
-      <h2 style="font-family: 'Crimson Pro', serif; font-size: 48px;">
+      <h3>
         <a href="{{url_for('article', id=article.id)}}" class="text-decoration-none">
-          {{article.topic}} News
+          {{article.topic}}
         </a>
-      </h2>
+      </h3>
     </p>
   </div>
 </div>

@@ -12,18 +12,18 @@
     {% if article.subtopic == 'Society' %}
     <p>
       <a href="{{url_for('article', id=article.id)}}">
-        <img class = "logo" src="/static/img/society.jpg">
+        <img class = "logo-2" src="/static/img/sociology.svg">
       </a>
     </p>
     {% endif %}
   </div>
   <div class="col right">
     <p>
-      <h2>
+      <h3>
         <a href="{{url_for('article', id=article.id)}}" class="text-decoration-none">
-          {{article.subtopic}} News
+          {{article.subtopic}}
         </a>
-      </h2>
+      </h3>
     </p>
   </div>
 </div>

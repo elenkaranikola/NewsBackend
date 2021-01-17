@@ -11,16 +11,16 @@
     {% if article.topic == 'Tech' %}
     <p>
       <a href="{{url_for('article', id=article.id)}}" >
-        <img class = "logo" id = "image-tech" src="/static/img/tech2.jpg">
+        <img class = "logo-2" id = "image-tech" src="/static/img/tech-support.svg">
       </a>
     </p>
     {% endif %}
   </div>
   <div class="col right">
     <p>
-      <h2>
-        <a href="{{url_for('article', id=article.id)}}" class="text-decoration-none">{{article.subtopic}} News</a>
-      </h2>
+      <h3>
+        <a href="{{url_for('article', id=article.id)}}" class="text-decoration-none">{{article.subtopic}}</a>
+      </h3>
     </p>
   </div>
 </div>

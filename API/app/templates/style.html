@@ -12,16 +12,16 @@
     {% if article.subtopic == 'Style' %}
     <p>
       <a href="{{url_for('article', id=article.id)}}" >
-        <img class = "logo" src="{{url_for('static', filename='img/style.jpg')}}"/>
+        <img class = "logo" src="{{url_for('static', filename='img/love.svg')}}"/>
       </a>
     </p>
     {% endif %}
   </div>
   <div class="col right">
     <p>
-      <h2>
-        <a href="{{url_for('article', id=article.id)}}" class="text-decoration-none">{{article.subtopic}} News</a>
-      </h2>
+      <h3>
+        <a href="{{url_for('article', id=article.id)}}" class="text-decoration-none">{{article.subtopic}}</a>
+      </h3>
     </p>
   </div>
 </div>

@@ -21,36 +21,36 @@
   <div class="card-header">
     <div class="col left">
       <a href="{{url_for('article', id=article.id)}}" >
-      {% if article.topic == 'World' %}
-      <p><img class = "logo" src="{{url_for('static', filename='img/worldnews.png')}}"/></p>
-      {% elif article.topic == 'Culture'%}
-      <p><img class = "logo" src="{{url_for('static', filename='img/culture3.png')}}"/></p>
-      {% elif article.topic == 'Economics'%}
-      <p><img class = "logo" src="{{url_for('static', filename='img/economics.jpg')}}"/></p>
-      {% elif article.topic == 'Environment'%}
-      <p><img class = "logo" src="{{url_for('static', filename='img/env.jpg')}}"/></p>
-      {% elif article.topic == 'Food'%}
-      <p><img class = "logo" src="{{url_for('static', filename='img/food.jpg')}}"/></p>
-      {% elif article.topic == 'Politics'%}
-      <p><img class = "logo" src="{{url_for('static', filename='img/politics2.jpg')}}"/></p>
-      {% elif article.topic == 'Society'%}
-      <p><img class = "logo" src="{{url_for('static', filename='img/society.jpg')}}"/></p>
-      {% elif article.topic == 'Sport'%}
-      <p><img class = "logo" src="{{url_for('static', filename='img/sport.jpg')}}"/></p>
-      {% elif article.topic == 'Style'%}
-      <p><img class = "logo" src="{{url_for('static', filename='img/style.jpg')}}"/></p>
-      {% elif article.topic == 'Tech'%}
-      <p><img class = "logo" src="{{url_for('static', filename='img/tech2.jpg')}}"/></p>
-      {% endif %}
+        {% if article.topic == 'World' %}
+        <p><img class = "logo-2" src="{{url_for('static', filename='img/worldwide.svg')}}"/></p>
+        {% elif article.topic == 'Culture'%}
+        <p><img class = "logo-2" src="{{url_for('static', filename='img/theatre.svg')}}"/></p>
+        {% elif article.topic == 'Economics'%}
+        <p><img class = "logo-2" src="{{url_for('static', filename='img/economic.svg')}}"/></p>
+        {% elif article.topic == 'Environment'%}
+        <p><img class = "logo-2" src="{{url_for('static', filename='img/save-the-planet.svg')}}"/></p>
+        {% elif article.topic == 'Food'%}
+        <p><img class = "logo-2" src="{{url_for('static', filename='img/diet.svg')}}"/></p>
+        {% elif article.topic == 'Politics'%}
+        <p><img class = "logo-2" src="{{url_for('static', filename='img/speech.svg')}}"/></p>
+        {% elif article.topic == 'Society'%}
+        <p><img class = "logo-2" src="{{url_for('static', filename='img/sociology.svg')}}"/></p>
+        {% elif article.topic == 'Sport'%}
+        <p><img class = "logo-2" src="{{url_for('static', filename='img/sports.svg')}}"/></p>
+        {% elif article.topic == 'Style'%}
+        <p><img class = "logo-2" src="{{url_for('static', filename='img/love.svg')}}"/></p>
+        {% elif article.topic == 'Tech'%}
+        <p><img class = "logo-2" src="{{url_for('static', filename='img/tech-support.svg')}}"/></p>
+        {% endif %}
     </a>
     </div>
     <div class="col right">
       <p>
-        <h2>
+        <h3>
           <a href="{{url_for('article', id=article.id)}}" class="text-decoration-none">
-            {{article.topic}} News
+            {{article.topic}}
           </a>
-        </h2>
+        </h3>
       </p>
     </div>
   </div>

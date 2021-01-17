@@ -10,14 +10,14 @@
   <div class="col left">
     
     {% if article.subtopic == 'World' %}
-    <p><a href="{{url_for('article', id=article.id)}}" ><img class = "logo" src="/static/img/worldnews.png"></a></p>
+    <p><a href="{{url_for('article', id=article.id)}}" ><img class = "logo" src="/static/img/worldwide.svg"></a></p>
     {% endif %}
   </div>
   <div class="col right">
     <p>
-      <h2>
-        <a href="{{url_for('article', id=article.id)}}" class="text-decoration-none">{{article.subtopic}} News</a>
-      </h2>
+      <h3>
+        <a href="{{url_for('article', id=article.id)}}" class="text-decoration-none">{{article.subtopic}}</a>
+      </h3>
     </p>
   </div>
 </div>

@@ -1,6 +1,4 @@
-import numpy as np
 import pandas as pd
-import statistics 
 import sys
 sys.path.insert(1, '/Users/elenikaranikola/Desktop/NewsCleanser')
 from utilities import WriteCell,SortMyDict

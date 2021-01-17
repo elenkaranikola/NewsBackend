@@ -6,41 +6,60 @@
 <a href="{{ url_for('classifier') }}" class="btn btn-secondary">Back</a><br>
 <div id = "classifier_head">
     <h3>The given article</h3>
-    <p>"{{ text }}"</p>
+    <p style="font-size: 15px; ">"{{ text }}"</p>
     <h3>belongs to category:</h3>
+    <div>
+        <h3>{{ category }}</h3>
+    </div>
 </div>
-<div>
-    <h3>{{ category }}</h3>
-    <h4>Similar Articles</h4><hr>
-</div>
+<h4>Similar Articles</h4><hr>
 {% for article in articles %}
 <div class="card border-grey mb-3">
 <div class="card-header">
-  <div class="col left">
+  <div class="col left">  
+    <a href="{{url_for('article', id=article.id)}}" class="text-decoration-none">
+      {% if article.topic == 'World' %}
+      <p><img class = "logo-2" src="{{url_for('static', filename='img/worldwide.svg')}}"/></p>
+      {% elif article.topic == 'Culture'%}
+      <p><img class = "logo-2" src="{{url_for('static', filename='img/theatre.svg')}}"/></p>
+      {% elif article.topic == 'Economics'%}
+      <p><img class = "logo-2" src="{{url_for('static', filename='img/economic.svg')}}"/></p>
+      {% elif article.topic == 'Environment'%}
+      <p><img class = "logo-2" src="{{url_for('static', filename='img/save-the-planet.svg')}}"/></p>
+      {% elif article.topic == 'Food'%}
+      <p><img class = "logo-2" src="{{url_for('static', filename='img/diet.svg')}}"/></p>
+      {% elif article.topic == 'Politics'%}
+      <p><img class = "logo-2" src="{{url_for('static', filename='img/speech.svg')}}"/></p>
+      {% elif article.topic == 'Society'%}
+      <p><img class = "logo-2" src="{{url_for('static', filename='img/sociology.svg')}}"/></p>
+      {% elif article.topic == 'Sport'%}
+      <p><img class = "logo-2" src="{{url_for('static', filename='img/sports.svg')}}"/></p>
+      {% elif article.topic == 'Style'%}
+      <p><img class = "logo-2" src="{{url_for('static', filename='img/love.svg')}}"/></p>
+      {% elif article.topic == 'Tech'%}
+      <p><img class = "logo-2" src="{{url_for('static', filename='img/tech-support.svg')}}"/></p>
+      {% endif %}
+  </a>  
   </div>
   <div class="col right">
     <p>
-        <h2>
-            <a href="{{url_for('article', id=article.id)}}" class="text-decoration-none">
-                {{article.subtopic}} News
-            </a>
-        </h2>
+      <h3>
+        <a href="{{url_for('article', id=article.id)}}" class="text-decoration-none">
+          {{article.topic}}
+        </a>
+      </h3>
     </p>
   </div>
 </div>
 <div class="card-body">
-    <div class="row">
-        <div class="col-ms-1">
-            <p><strong>{{article.title}}</strong></p>
-            <p>{{article.article_body[0:500]}}...  
-                <a href="{{url_for('article', id=article.id)}}" >
-                    READ MORE
-                </a>
-            </p>     
-            <p><strong>Author: </strong>{{article.author}}</p>
-            <p>{{article.article_date}}</p>
-        </div>
-    </div>
+  <p><strong>{{article.title}}</strong></p>
+  <p>{{article.article_body[0:500]}}...
+    <a href="{{url_for('article', id=article.id)}}">
+      READ MORE
+    </a>
+  </p>     
+  <p><strong>Author: </strong>{{article.author}}</p>
+  <p>{{article.article_date}}</p>
 </div>
 </div>
 {% endfor %}
