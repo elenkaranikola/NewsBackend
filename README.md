@@ -33,8 +33,7 @@
   - dependencies/imported_stop_words.txt: Contains extra stop words found on the internet and some more based on my observations.
   - dependencies/api_charts : Containes the data used in the javascript files.
   - text_preprocessing.py: Used to keep only the usefull words from a text.
-  - commands.sql: Sql commands to control tha data on the database.
-  - create_table_articles.sql: Sql commands used to create our database.
+  - settings.py : Usefull static data used in our project.
   
   
 ### Steps to run this project:
