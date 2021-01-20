@@ -44,19 +44,36 @@
 $ git clone https://github.com/elenisproject/NewsBackend.git
 $ cd NewsBackend
 $ pip3 install -r requirements.txt
+$ cd API
+$ pip3 install -r requirements.txt
 
 ```
 *Now we have in our computer, the code we need to start this project. Time to create our database. I used MySQLWorkbench.* 
 
-2. Create a new schema and run the sql command:
-[create_table_article.sql](Database_Configuration/create_table_articles.sql)
+2. Create a new schema and run the sql command from the Database_Configuration folder:
+[create_table_article.sql](https://github.com/elenisproject/NewsBackend/blob/master/Database_Configuration/create_table_articles.sql)
+[similar_articles.sql](https://github.com/elenisproject/NewsBackend/blob/master/Database_Configuration/similar_articles.sql)
 
 3. Run the project as explained in
-[NewsBackend](https://github.com/elenisproject/NewsBackend.git)
+[NewsCrawler](https://github.com/elenisproject/NewsCrawler)
 to fill your database with data.
 
-4. Go back to your terminal and run:
+4. Go back to your terminal and in the TextPreprocessor folder run:
 ```bash
 $ python3 stop_words.py     
 $ python3 text_preprocessing.py
+$ python3 common_articles_finder.py
+
 ```
+
+5. In order to run the website run in your terminal:
+```bash
+$ cd API   
+$ source venv/bin/activate
+$ flask run
+```
+
+6. See the website at:
+http://localhost:5000
+
+
