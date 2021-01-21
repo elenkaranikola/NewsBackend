@@ -77,3 +77,9 @@ $ flask run
 http://localhost:5000
 
 
+### Youtube video :
+
+This is a youtube video of the website in use:
+https://www.youtube.com/watch?v=L_pdCzFcpjc
+
+
