@@ -13,7 +13,7 @@ from joblib import Parallel, delayed
 import collections
 import mysql.connector  
 from collections import Counter,defaultdict,OrderedDict,namedtuple
-from settings import DB_CREDS
+from settings import DB_CREDS,categories
 
 
 #establish connection with database
@@ -128,7 +128,7 @@ def FindTop(articles):
         all_words_compined.extend(word_list)
         
     #find the 500 most common
-    top = Counter(all_words_compined).most_common(100)
+    top = Counter(all_words_compined).most_common(2000)
     return top
 
 def CombineArticles(category,df):
@@ -142,6 +142,8 @@ def CombineArticles(category,df):
         category_words_combined.extend(word_list) 
     
     return(category_words_combined)
+
+#shuffle data and splint in 70%, 30% for testing
 
 #main tester
 def MainTester(all_categories):
@@ -204,3 +206,45 @@ def finalNormalizeFullPath(i):
     second_filter = list(filter(lambda i: i not in short_words, filtered_sentence))
     third_filter = list(filter(lambda i: i not in fix_words, second_filter))
     return(third_filter)
+
+def FindTopTester(articles,top_words):
+    #initiate an empty list to save all the words of all the articles
+    all_words_compined = []
+    
+    for words in articles:
+        #split the articles to words
+        word_list = words.split()
+        #save the words to our list
+        all_words_compined.extend(word_list)
+        
+    #find the 500 most common
+    top = Counter(all_words_compined).most_common(top_words)
+    return top
+
+def ClassifierTester(cleaned_output,top_words,df):          
+    articles = list(cleaned_output['article_body'])  
+    top_x_words = FindTopTester(articles,top_words)       
+
+    words_dict = {}
+
+    #from the list of words create a dictionary with key the word and value the times we counted it in all our data
+    for word in top_x_words:
+        words_dict[word[0]]=word[1]
+
+    all_categories = {}
+
+    #for each category combine all its articles words
+    #and calculate the percent of appearance based on the top 100 words
+    #and save in a new dict with key the category and value another dict with key the word and value the percentage
+    for category in categories:
+        category_words_combined = CombineArticles(category,df)
+        sub_dict = {}
+        cnt = Counter(category_words_combined)
+
+        for word in words_dict:
+            persentage = cnt[word] / words_dict[word]
+            sub_dict[word] = persentage
+
+        all_categories[category] = sub_dict
+
+    return(all_categories)
