@@ -1,4 +1,4 @@
-joblib==0.15.1
+joblib==1.2.0
 mysql==0.0.2
 mysql-connector-python==8.0.20
 mysqlclient==1.4.6
